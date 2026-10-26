@@ -15,7 +15,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenTrialModal, onNavigateToAI
 
   const navLinks = [
     { label: 'Home', href: '#home' },
-    { label: 'About Us', href: '#about' },
+    { label: 'About', href: '#about' },
     { label: 'Kids Programs', href: '#programs' },
     { label: 'AI Athletic Lab', href: '#ai-lab', isAI: true },
   ];

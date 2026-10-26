@@ -32,41 +32,41 @@ export const AIModuleContainer: React.FC<AIModuleContainerProps> = ({
           We combine Olympic pediatric physiology with real-time artificial intelligence to unlock every young athlete’s kinetic potential safely.
         </p>
 
-        {/* Clean White Tab selector */}
-        <div className="mt-8 inline-flex p-1.5 bg-slate-100 rounded-2xl border border-slate-200 shadow-sm">
+        {/* Clean Pill Dock Tab selector */}
+        <div className="mt-8 inline-flex p-1.5 bg-slate-100/90 rounded-full border border-slate-200/80 shadow-2xs backdrop-blur-xs gap-1 flex-wrap justify-center">
           <button
             onClick={() => setActiveTab('assessment')}
-            className={`flex items-center gap-2 px-5 py-3 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer ${
+            className={`flex items-center gap-2 px-5 py-2.5 rounded-full text-xs sm:text-sm font-bold transition-all cursor-pointer select-none ${
               activeTab === 'assessment'
-                ? 'bg-white text-slate-900 shadow-md border border-slate-200/80'
-                : 'text-slate-600 hover:text-slate-900'
+                ? 'bg-red-600 text-white shadow-md shadow-red-600/25 scale-[1.02]'
+                : 'text-slate-600 hover:text-slate-900 hover:bg-white/70'
             }`}
           >
-            <Sparkles className="w-4 h-4 text-red-600" />
+            <Sparkles className={`w-4 h-4 ${activeTab === 'assessment' ? 'text-amber-200' : 'text-red-600'}`} />
             <span>AI Assessment & Plan</span>
           </button>
 
           <button
             onClick={() => setActiveTab('vision')}
-            className={`flex items-center gap-2 px-5 py-3 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer ${
+            className={`flex items-center gap-2 px-5 py-2.5 rounded-full text-xs sm:text-sm font-bold transition-all cursor-pointer select-none ${
               activeTab === 'vision'
-                ? 'bg-white text-slate-900 shadow-md border border-slate-200/80'
-                : 'text-slate-600 hover:text-slate-900'
+                ? 'bg-red-600 text-white shadow-md shadow-red-600/25 scale-[1.02]'
+                : 'text-slate-600 hover:text-slate-900 hover:bg-white/70'
             }`}
           >
-            <Eye className="w-4 h-4 text-emerald-600" />
+            <Eye className={`w-4 h-4 ${activeTab === 'vision' ? 'text-white' : 'text-emerald-600'}`} />
             <span>AI Pose & Form Vision</span>
           </button>
 
           <button
             onClick={() => setActiveTab('coach')}
-            className={`flex items-center gap-2 px-5 py-3 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer ${
+            className={`flex items-center gap-2 px-5 py-2.5 rounded-full text-xs sm:text-sm font-bold transition-all cursor-pointer select-none ${
               activeTab === 'coach'
-                ? 'bg-white text-slate-900 shadow-md border border-slate-200/80'
-                : 'text-slate-600 hover:text-slate-900'
+                ? 'bg-red-600 text-white shadow-md shadow-red-600/25 scale-[1.02]'
+                : 'text-slate-600 hover:text-slate-900 hover:bg-white/70'
             }`}
           >
-            <Bot className="w-4 h-4 text-blue-600" />
+            <Bot className={`w-4 h-4 ${activeTab === 'coach' ? 'text-white' : 'text-blue-600'}`} />
             <span>Coach RA (24/7 AI)</span>
           </button>
         </div>

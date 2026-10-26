@@ -191,7 +191,7 @@ export const ProgramsSection: React.FC<ProgramsSectionProps> = ({
         </h2>
 
         <p className="mt-4 text-base sm:text-lg text-slate-600 leading-relaxed font-normal">
-          The website presents each program as a simple visual card with a short parent-friendly explanation. Activities are planned around children's developmental stages to foster athletic joy, healthy habits, and self-confidence.
+          Scientifically designed athletic development programs for children ages 3 to 17. Every session is planned around physical growth milestones to build speed, coordination, healthy habits, and lifelong confidence.
         </p>
 
         {/* Category Filter Pills */}
@@ -225,7 +225,7 @@ export const ProgramsSection: React.FC<ProgramsSectionProps> = ({
                 Progression Tailored to Your Child's Stage
               </h3>
               <p className="text-xs sm:text-sm text-slate-500 mt-1">
-                The structure helps parents understand what happens during a session and what skills are prioritized.
+                Structured LTAD (Long-Term Athlete Development) milestones ensure age-appropriate motor literacy, neuromuscular coordination, and injury-free athletic progress.
               </p>
             </div>
 
@@ -265,10 +265,10 @@ export const ProgramsSection: React.FC<ProgramsSectionProps> = ({
                 Session Structure
               </span>
               <h3 className="text-2xl font-black text-slate-900 mt-1">
-                Sample 5-Step Session Flow
+                Our Proven 5-Step Training Methodology
               </h3>
               <p className="text-xs sm:text-sm text-slate-500 mt-1">
-                Every session is structured to ensure maximum engagement, active fun, and positive coaching feedback.
+                Every session is structured to ensure maximum engagement, active fun, progressive skill building, and positive coaching feedback.
               </p>
             </div>
 

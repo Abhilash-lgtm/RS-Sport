@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
-import { SchoolProgramsSection } from './components/SchoolProgramsSection';
 import { AboutSection } from './components/AboutSection';
-import { AIModuleContainer } from './components/AILab/AIModuleContainer';
 import { ProgramsSection } from './components/ProgramsSection';
+import { AIModuleContainer } from './components/AILab/AIModuleContainer';
 import { Footer } from './components/Footer';
 import { TrialBookingModal } from './components/TrialBookingModal';
 import { SchoolDemoModal } from './components/SchoolDemoModal';
@@ -55,29 +54,26 @@ export const App: React.FC = () => {
 
       {/* Main Content Sections */}
       <main className="flex-1">
-        {/* Hero Section */}
+        {/* 1. Home / Hero Section */}
         <Hero
           onOpenTrialModal={() => handleOpenTrial()}
           onNavigateToAILab={scrollToAILab}
         />
 
-        {/* School & Preschool Sports Programs (Primary Front Page Focus) */}
-        <SchoolProgramsSection onOpenDemoModal={() => setDemoModalOpen(true)} />
-
-        {/* Official About Us Section */}
+        {/* 2. About Us Section */}
         <AboutSection onOpenTrialModal={() => handleOpenTrial()} />
 
-        {/* AI Athletic Lab */}
+        {/* 3. Core Kids Athletic Programs */}
+        <ProgramsSection
+          onBookTrialForProgram={(prog) => handleOpenTrial(prog)}
+          onNavigateToAILab={scrollToAILab}
+        />
+
+        {/* 4. AI Athletic Lab */}
         <AIModuleContainer
           onBookTrialWithAthlete={handleBookTrialWithAthlete}
           onOpenTrialModal={() => handleOpenTrial()}
           onNavigateToSchedule={scrollToPrograms}
-        />
-
-        {/* Core Athletic Programs */}
-        <ProgramsSection
-          onBookTrialForProgram={(prog) => handleOpenTrial(prog)}
-          onNavigateToAILab={scrollToAILab}
         />
       </main>
 
