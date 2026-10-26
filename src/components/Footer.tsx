@@ -34,7 +34,7 @@ export const Footer: React.FC = () => {
             </div>
 
             <p className="text-xs text-slate-500 leading-relaxed max-w-sm font-medium">
-              <strong className="text-slate-800">STRONGER KIDS • HEALTHIER FUTURES.</strong> Premier youth athletics academy and in-school physical education organization in Hyderabad. Inspired by modern youth multi-sport models (Go Alpha & Fit Cubs) and backed by Olympic LTAD science and real-time AI biomechanics.
+              <strong className="text-slate-800">STRONGER KIDS • HEALTHIER FUTURES.</strong> Premier youth athletics academy and in-school physical education organization in Hyderabad. Inspired by modern youth multi-sport models and backed by Olympic LTAD science and real-time AI biomechanics.
             </p>
 
             <div className="pt-2 flex flex-wrap items-center gap-3 text-xs text-slate-600 font-medium">
