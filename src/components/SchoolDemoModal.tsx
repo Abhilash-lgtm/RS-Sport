@@ -21,23 +21,53 @@ export const SchoolDemoModal: React.FC<SchoolDemoModalProps> = ({ isOpen, onClos
   const [locationArea, setLocationArea] = useState('');
   const [preferredDate, setPreferredDate] = useState('');
   const [demoId, setDemoId] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   if (!isOpen) return null;
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const generatedId = `RA-DEMO-${Math.floor(1000 + Math.random() * 9000)}`;
-    setDemoId(generatedId);
-    setStep(2);
+    setIsSubmitting(true);
 
     try {
-      confetti({
-        particleCount: 75,
-        spread: 80,
-        origin: { y: 0.5 }
+      const res = await fetch('/api/school-demos', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          schoolName,
+          contactPerson,
+          role,
+          phone,
+          email,
+          institutionType,
+          selectedService,
+          locationArea,
+          preferredDate
+        })
       });
+
+      if (res.ok) {
+        const data = await res.json();
+        setDemoId(data.demoId || `RA-DEMO-${Math.floor(1000 + Math.random() * 9000)}`);
+      } else {
+        throw new Error('Network error');
+      }
     } catch {
-      // ignore
+      const generatedId = `RA-DEMO-${Math.floor(1000 + Math.random() * 9000)}`;
+      setDemoId(generatedId);
+    } finally {
+      setIsSubmitting(false);
+      setStep(2);
+
+      try {
+        confetti({
+          particleCount: 75,
+          spread: 80,
+          origin: { y: 0.5 }
+        });
+      } catch {
+        // ignore
+      }
     }
   };
 
@@ -211,10 +241,11 @@ export const SchoolDemoModal: React.FC<SchoolDemoModalProps> = ({ isOpen, onClos
               <div className="pt-2">
                 <button
                   type="submit"
-                  className="w-full bg-gradient-to-r from-red-600 via-rose-600 to-blue-700 hover:from-red-700 hover:to-blue-800 text-white font-black py-3.5 px-6 rounded-xl text-sm transition-all shadow-md shadow-red-600/20 flex items-center justify-center gap-2 cursor-pointer"
+                  disabled={isSubmitting}
+                  className="w-full bg-gradient-to-r from-red-600 via-rose-600 to-blue-700 hover:from-red-700 hover:to-blue-800 disabled:opacity-75 text-white font-black py-3.5 px-6 rounded-xl text-sm transition-all shadow-md shadow-red-600/20 flex items-center justify-center gap-2 cursor-pointer"
                 >
                   <Trophy className="w-5 h-5 text-amber-300" />
-                  <span>Submit Demo Session Request</span>
+                  <span>{isSubmitting ? 'Submitting...' : 'Submit Demo Session Request'}</span>
                   <ArrowRight className="w-4 h-4" />
                 </button>
                 <p className="text-[11px] text-slate-500 text-center mt-2">

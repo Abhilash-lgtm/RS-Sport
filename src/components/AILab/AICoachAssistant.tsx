@@ -71,7 +71,7 @@ export const AICoachAssistant: React.FC<AICoachAssistantProps> = ({
     window.speechSynthesis.speak(utterance);
   };
 
-  const handleSendMessage = (textToSend?: string) => {
+  const handleSendMessage = async (textToSend?: string) => {
     const query = textToSend || inputText;
     if (!query.trim()) return;
 
@@ -86,17 +86,48 @@ export const AICoachAssistant: React.FC<AICoachAssistantProps> = ({
     setInputText('');
     setIsTyping(true);
 
-    setTimeout(() => {
+    try {
+      const res = await fetch('/api/coach/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message: query })
+      });
+
+      if (res.ok) {
+        const data = await res.json();
+        const reply = data.reply;
+        const action = data.actionButton || {
+          label: 'Book Complimentary Trial Session',
+          action: 'trial'
+        };
+
+        const coachMsg: ChatMessage = {
+          id: `c-${Date.now()}`,
+          sender: 'coach',
+          text: reply,
+          timestamp: 'Just now',
+          actionButton: action
+        };
+
+        setMessages((prev) => [...prev, coachMsg]);
+        if (speechEnabled) {
+          speakText(reply);
+        }
+        return;
+      }
+      throw new Error('API offline');
+    } catch {
+      // Local fallback
       const lower = query.toLowerCase();
-      let matchedResponse = KNOWLEDGE_RESPONSES.find((item) =>
+      const matchedResponse = KNOWLEDGE_RESPONSES.find((item) =>
         item.keywords.some((kw) => lower.includes(kw))
       );
 
-      let reply = matchedResponse
+      const reply = matchedResponse
         ? matchedResponse.answer
         : `Great question regarding young athlete development! For "${query}", our certified coaches emphasize the Long-Term Athlete Development (LTAD) model: age-appropriate motor skills, neuromuscular agility, and positive reinforcement. I recommend attending a complimentary diagnostic trial where our NIS/World Athletics coaches can evaluate your child firsthand!`;
 
-      let action = matchedResponse?.action || {
+      const action = matchedResponse?.action || {
         label: 'Book Complimentary Trial Session',
         action: 'trial'
       };
@@ -110,12 +141,12 @@ export const AICoachAssistant: React.FC<AICoachAssistantProps> = ({
       };
 
       setMessages((prev) => [...prev, coachMsg]);
-      setIsTyping(false);
-
       if (speechEnabled) {
         speakText(reply);
       }
-    }, 700);
+    } finally {
+      setIsTyping(false);
+    }
   };
 
   const handleActionButton = (action: string) => {

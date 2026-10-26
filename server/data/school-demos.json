@@ -1,0 +1,15 @@
+[
+  {
+    "id": "RA-DEMO-4819",
+    "schoolName": "Oakridge International School",
+    "contactPerson": "Dr. Sunita Rao",
+    "role": "Principal / Director",
+    "phone": "+91 99887 76655",
+    "email": "sports@oakridge.edu",
+    "institutionType": "K-12 School (Grades 1-12)",
+    "selectedService": "Physical Education Curriculum",
+    "locationArea": "Whitefield",
+    "preferredDate": "2026-11-05",
+    "createdAt": "2026-10-24T14:15:00.000Z"
+  }
+]

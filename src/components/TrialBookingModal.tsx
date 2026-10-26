@@ -38,30 +38,61 @@ export const TrialBookingModal: React.FC<TrialBookingModalProps> = ({
     sport: string;
     slot: string;
   } | null>(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   if (!isOpen) return null;
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-
-    const passId = `RA-PASS-${Math.floor(100000 + Math.random() * 900000)}`;
-    setBookingPass({
-      id: passId,
-      athlete: childName.trim() || 'Young Athlete',
-      hub: selectedHub,
-      sport: selectedSport,
-      slot: preferredSlot
-    });
-    setStep(2);
+    setIsSubmitting(true);
 
     try {
-      confetti({
-        particleCount: 80,
-        spread: 80,
-        origin: { y: 0.5 }
+      const res = await fetch('/api/trials', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          parentName,
+          childName,
+          childAge,
+          phone,
+          selectedHub,
+          selectedSport,
+          preferredSlot
+        })
       });
+
+      if (res.ok) {
+        const result = await res.json();
+        if (result.bookingPass) {
+          setBookingPass(result.bookingPass);
+        } else {
+          throw new Error('Invalid response');
+        }
+      } else {
+        throw new Error('Server returned non-200');
+      }
     } catch {
-      // ignore
+      const passId = `RA-PASS-${Math.floor(100000 + Math.random() * 900000)}`;
+      setBookingPass({
+        id: passId,
+        athlete: childName.trim() || 'Young Athlete',
+        hub: selectedHub,
+        sport: selectedSport,
+        slot: preferredSlot
+      });
+    } finally {
+      setIsSubmitting(false);
+      setStep(2);
+
+      try {
+        confetti({
+          particleCount: 80,
+          spread: 80,
+          origin: { y: 0.5 }
+        });
+      } catch {
+        // ignore
+      }
     }
   };
 
@@ -217,10 +248,11 @@ export const TrialBookingModal: React.FC<TrialBookingModalProps> = ({
               <div className="pt-4">
                 <button
                   type="submit"
-                  className="w-full bg-gradient-to-r from-red-600 via-rose-600 to-blue-700 hover:from-red-700 hover:to-blue-800 text-white font-black py-3.5 px-6 rounded-xl text-sm transition-all shadow-md shadow-red-600/20 flex items-center justify-center gap-2 cursor-pointer"
+                  disabled={isSubmitting}
+                  className="w-full bg-gradient-to-r from-red-600 via-rose-600 to-blue-700 hover:from-red-700 hover:to-blue-800 disabled:opacity-75 text-white font-black py-3.5 px-6 rounded-xl text-sm transition-all shadow-md shadow-red-600/20 flex items-center justify-center gap-2 cursor-pointer"
                 >
                   <CheckCircle2 className="w-5 h-5" />
-                  <span>Confirm Free Trial Registration</span>
+                  <span>{isSubmitting ? 'Registering...' : 'Confirm Free Trial Registration'}</span>
                   <ArrowRight className="w-4 h-4" />
                 </button>
                 <p className="text-[11px] text-slate-500 text-center mt-2">
