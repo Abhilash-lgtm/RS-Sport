@@ -27,7 +27,7 @@ export const Footer: React.FC = () => {
               </div>
               <div>
                 <span className="text-xl font-black text-slate-900 tracking-tight">RA SPORTS</span>
-                <span className="block text-[11px] font-bold text-red-600 tracking-wider uppercase">
+                <span className="block text-[11px] font-bold text-blue-600 tracking-wider uppercase">
                   Raising Athletics Sports
                 </span>
               </div>
@@ -95,11 +95,11 @@ export const Footer: React.FC = () => {
           <div className="space-y-3">
             <h4 className="text-slate-900 text-xs font-bold uppercase tracking-wider">Athletic Programs</h4>
             <ul className="space-y-2 text-xs font-medium">
-              <li><a href="#programs" className="hover:text-red-600 transition-colors">Little Cubs (Ages 4-6)</a></li>
-              <li><a href="#programs" className="hover:text-red-600 transition-colors">Junior Explorers (Ages 7-10)</a></li>
-              <li><a href="#programs" className="hover:text-red-600 transition-colors">Youth Academy Pro (Ages 11-14)</a></li>
-              <li><a href="#programs" className="hover:text-red-600 transition-colors">Elite Sprint Squad (Ages 15-18)</a></li>
-              <li><a href="#programs" className="hover:text-red-600 transition-colors">In-School PE (The Fit Cubs)</a></li>
+              <li><a href="#programs" className="hover:text-blue-600 transition-colors">Little Cubs (Ages 4-6)</a></li>
+              <li><a href="#programs" className="hover:text-blue-600 transition-colors">Junior Explorers (Ages 7-10)</a></li>
+              <li><a href="#programs" className="hover:text-blue-600 transition-colors">Youth Academy Pro (Ages 11-14)</a></li>
+              <li><a href="#programs" className="hover:text-blue-600 transition-colors">Elite Sprint Squad (Ages 15-18)</a></li>
+              <li><a href="#programs" className="hover:text-blue-600 transition-colors">In-School PE (The Fit Cubs)</a></li>
             </ul>
           </div>
 
@@ -107,11 +107,11 @@ export const Footer: React.FC = () => {
           <div className="space-y-3">
             <h4 className="text-slate-900 text-xs font-bold uppercase tracking-wider">AI Sports Lab</h4>
             <ul className="space-y-2 text-xs font-medium">
-              <li><a href="#ai-lab" className="hover:text-red-600 transition-colors">AI Athletic Assessment</a></li>
-              <li><a href="#ai-lab" className="hover:text-red-600 transition-colors">Kinematic Pose Tracking</a></li>
-              <li><a href="#ai-lab" className="hover:text-red-600 transition-colors">Stride & Cadence Vision</a></li>
-              <li><a href="#ai-lab" className="hover:text-red-600 transition-colors">Coach RA 24/7 AI Chatbot</a></li>
-              <li><a href="#about" className="hover:text-red-600 transition-colors">Vision & Mission</a></li>
+              <li><a href="#ai-lab" className="hover:text-blue-600 transition-colors">AI Athletic Assessment</a></li>
+              <li><a href="#ai-lab" className="hover:text-blue-600 transition-colors">Kinematic Pose Tracking</a></li>
+              <li><a href="#ai-lab" className="hover:text-blue-600 transition-colors">Stride & Cadence Vision</a></li>
+              <li><a href="#ai-lab" className="hover:text-blue-600 transition-colors">Coach RA 24/7 AI Chatbot</a></li>
+              <li><a href="#about" className="hover:text-blue-600 transition-colors">Vision & Mission</a></li>
             </ul>
           </div>
 
@@ -121,7 +121,7 @@ export const Footer: React.FC = () => {
             <div className="space-y-2.5 text-xs font-medium">
               <a
                 href={`tel:${CONTACT_INFO.rawPhone}`}
-                className="flex items-center gap-2 text-slate-800 hover:text-red-600 transition-colors"
+                className="flex items-center gap-2 text-slate-800 hover:text-blue-600 transition-colors"
               >
                 <Phone className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
                 <span className="font-bold">{CONTACT_INFO.phone}</span>
@@ -147,15 +147,15 @@ export const Footer: React.FC = () => {
 
               <div className="pt-1 space-y-1.5 text-slate-500 text-[11px]">
                 <div className="flex items-start gap-1.5">
-                  <MapPin className="w-3.5 h-3.5 text-red-600 shrink-0 mt-0.5" />
+                  <MapPin className="w-3.5 h-3.5 text-blue-600 shrink-0 mt-0.5" />
                   <span>Gachibowli Stadium Hub, Hyderabad</span>
                 </div>
                 <div className="flex items-start gap-1.5">
-                  <MapPin className="w-3.5 h-3.5 text-red-600 shrink-0 mt-0.5" />
+                  <MapPin className="w-3.5 h-3.5 text-blue-600 shrink-0 mt-0.5" />
                   <span>Jubilee Hills & Madhapur, Hyderabad</span>
                 </div>
                 <div className="flex items-start gap-1.5">
-                  <MapPin className="w-3.5 h-3.5 text-red-600 shrink-0 mt-0.5" />
+                  <MapPin className="w-3.5 h-3.5 text-blue-600 shrink-0 mt-0.5" />
                   <span>Kondapur & Kukatpally, Hyderabad</span>
                 </div>
               </div>

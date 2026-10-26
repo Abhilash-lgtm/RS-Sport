@@ -21,12 +21,12 @@ export const AIModuleContainer: React.FC<AIModuleContainerProps> = ({
     <section id="ai-lab" className="py-14 sm:py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto scroll-mt-20">
       {/* Section Header */}
       <div className="text-center max-w-3xl mx-auto mb-12">
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-red-50 border border-red-200 text-red-700 text-xs font-bold uppercase tracking-wider mb-4 shadow-xs">
-          <BrainCircuit className="w-4 h-4 text-red-600 animate-pulse" />
+        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-50 border border-blue-200 text-blue-700 text-xs font-bold uppercase tracking-wider mb-4 shadow-2xs">
+          <BrainCircuit className="w-4 h-4 text-blue-600 animate-pulse" />
           <span>Next-Gen Sports Technology</span>
         </div>
         <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight">
-          RA Sports <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-600 via-rose-600 to-blue-700">AI Athletic Lab</span>
+          RA Sports <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-600 to-sky-500">AI Athletic Lab</span>
         </h2>
         <p className="mt-4 text-slate-600 text-base sm:text-lg">
           We combine Olympic pediatric physiology with real-time artificial intelligence to unlock every young athlete’s kinetic potential safely.
@@ -38,11 +38,11 @@ export const AIModuleContainer: React.FC<AIModuleContainerProps> = ({
             onClick={() => setActiveTab('assessment')}
             className={`flex items-center gap-1.5 sm:gap-2 px-3.5 sm:px-5 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-bold transition-all cursor-pointer select-none ${
               activeTab === 'assessment'
-                ? 'bg-red-600 text-white shadow-md shadow-red-600/25 scale-[1.02]'
+                ? 'bg-blue-600 text-white shadow-sm shadow-blue-600/25 scale-[1.02]'
                 : 'text-slate-600 hover:text-slate-900 hover:bg-white/70'
             }`}
           >
-            <Sparkles className={`w-3.5 h-3.5 sm:w-4 sm:h-4 ${activeTab === 'assessment' ? 'text-amber-200' : 'text-red-600'}`} />
+            <Sparkles className={`w-3.5 h-3.5 sm:w-4 sm:h-4 ${activeTab === 'assessment' ? 'text-amber-200' : 'text-blue-600'}`} />
             <span>AI Assessment & Plan</span>
           </button>
 
@@ -50,7 +50,7 @@ export const AIModuleContainer: React.FC<AIModuleContainerProps> = ({
             onClick={() => setActiveTab('vision')}
             className={`flex items-center gap-1.5 sm:gap-2 px-3.5 sm:px-5 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-bold transition-all cursor-pointer select-none ${
               activeTab === 'vision'
-                ? 'bg-red-600 text-white shadow-md shadow-red-600/25 scale-[1.02]'
+                ? 'bg-blue-600 text-white shadow-sm shadow-blue-600/25 scale-[1.02]'
                 : 'text-slate-600 hover:text-slate-900 hover:bg-white/70'
             }`}
           >
@@ -62,7 +62,7 @@ export const AIModuleContainer: React.FC<AIModuleContainerProps> = ({
             onClick={() => setActiveTab('coach')}
             className={`flex items-center gap-1.5 sm:gap-2 px-3.5 sm:px-5 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-bold transition-all cursor-pointer select-none ${
               activeTab === 'coach'
-                ? 'bg-red-600 text-white shadow-md shadow-red-600/25 scale-[1.02]'
+                ? 'bg-blue-600 text-white shadow-sm shadow-blue-600/25 scale-[1.02]'
                 : 'text-slate-600 hover:text-slate-900 hover:bg-white/70'
             }`}
           >

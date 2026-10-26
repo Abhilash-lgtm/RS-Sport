@@ -150,7 +150,7 @@ export const AIAthleteAssessment: React.FC<AIAthleteAssessmentProps> = ({
   return (
     <div className="bg-white border border-slate-200 rounded-2xl sm:rounded-3xl p-4 sm:p-8 lg:p-10 shadow-xl shadow-slate-200/60 relative overflow-hidden">
       {/* Decorative clean ambient glows */}
-      <div className="absolute -top-24 -right-24 w-80 h-80 bg-red-100/50 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute -top-24 -right-24 w-80 h-80 bg-sky-100/50 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute -bottom-24 -left-24 w-80 h-80 bg-blue-100/50 rounded-full blur-3xl pointer-events-none" />
 
       {/* Header */}
@@ -189,7 +189,7 @@ export const AIAthleteAssessment: React.FC<AIAthleteAssessmentProps> = ({
               placeholder="e.g. Aarav Sharma"
               value={formData.name}
               onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-              className="w-full bg-white border border-slate-300 rounded-xl px-4 py-2.5 text-slate-900 text-sm focus:outline-none focus:border-red-500 transition-colors shadow-2xs"
+              className="w-full bg-white border border-slate-300 rounded-xl px-4 py-2.5 text-slate-900 text-sm focus:outline-none focus:border-blue-500 transition-colors shadow-2xs"
             />
           </div>
 
@@ -204,7 +204,7 @@ export const AIAthleteAssessment: React.FC<AIAthleteAssessmentProps> = ({
                 max="17"
                 value={formData.age}
                 onChange={(e) => setFormData({ ...formData, age: Number(e.target.value) })}
-                className="w-full accent-red-600 cursor-pointer"
+                className="w-full accent-blue-600 cursor-pointer"
               />
               <div className="flex justify-between text-[10px] text-slate-500 mt-1 font-medium">
                 <span>4 yrs (Little)</span>
@@ -232,7 +232,7 @@ export const AIAthleteAssessment: React.FC<AIAthleteAssessmentProps> = ({
                   onClick={() => setFormData({ ...formData, gender: 'girl' })}
                   className={`py-2 text-xs rounded-xl font-semibold border transition-all cursor-pointer ${
                     formData.gender === 'girl'
-                      ? 'bg-rose-600 text-white border-rose-600 shadow-sm'
+                      ? 'bg-indigo-600 text-white border-indigo-600 shadow-sm'
                       : 'bg-white border-slate-300 text-slate-700 hover:border-slate-400'
                   }`}
                 >
@@ -251,7 +251,7 @@ export const AIAthleteAssessment: React.FC<AIAthleteAssessmentProps> = ({
                 max="200"
                 value={formData.heightCm}
                 onChange={(e) => setFormData({ ...formData, heightCm: Number(e.target.value) })}
-                className="w-full bg-white border border-slate-300 rounded-xl px-4 py-2.5 text-slate-900 text-sm focus:outline-none focus:border-red-500 shadow-2xs"
+                className="w-full bg-white border border-slate-300 rounded-xl px-4 py-2.5 text-slate-900 text-sm focus:outline-none focus:border-blue-500 shadow-2xs"
               />
             </div>
             <div>
@@ -262,7 +262,7 @@ export const AIAthleteAssessment: React.FC<AIAthleteAssessmentProps> = ({
                 max="95"
                 value={formData.weightKg}
                 onChange={(e) => setFormData({ ...formData, weightKg: Number(e.target.value) })}
-                className="w-full bg-white border border-slate-300 rounded-xl px-4 py-2.5 text-slate-900 text-sm focus:outline-none focus:border-red-500 shadow-2xs"
+                className="w-full bg-white border border-slate-300 rounded-xl px-4 py-2.5 text-slate-900 text-sm focus:outline-none focus:border-blue-500 shadow-2xs"
               />
             </div>
           </div>
@@ -272,7 +272,7 @@ export const AIAthleteAssessment: React.FC<AIAthleteAssessmentProps> = ({
             <select
               value={formData.primarySport}
               onChange={(e) => setFormData({ ...formData, primarySport: e.target.value })}
-              className="w-full bg-white border border-slate-300 rounded-xl px-4 py-2.5 text-slate-900 text-sm focus:outline-none focus:border-red-500 shadow-2xs"
+              className="w-full bg-white border border-slate-300 rounded-xl px-4 py-2.5 text-slate-900 text-sm focus:outline-none focus:border-blue-500 shadow-2xs"
             >
               <option value="Athletics & Sprints">Athletics & Sprint Speed</option>
               <option value="Multi-Sport Foundations">Multi-Sport Athletic Foundations</option>
@@ -289,7 +289,7 @@ export const AIAthleteAssessment: React.FC<AIAthleteAssessmentProps> = ({
             <select
               value={formData.activityLevel}
               onChange={(e) => setFormData({ ...formData, activityLevel: e.target.value as any })}
-              className="w-full bg-white border border-slate-300 rounded-xl px-4 py-2.5 text-slate-900 text-sm focus:outline-none focus:border-red-500 shadow-2xs"
+              className="w-full bg-white border border-slate-300 rounded-xl px-4 py-2.5 text-slate-900 text-sm focus:outline-none focus:border-blue-500 shadow-2xs"
             >
               <option value="Beginner (0-1 days/wk)">Beginner (Mostly school desk / sedentary)</option>
               <option value="Moderate (2-3 days/wk)">Moderate (Plays recreationally 2-3 days/wk)</option>
@@ -307,7 +307,7 @@ export const AIAthleteAssessment: React.FC<AIAthleteAssessmentProps> = ({
                   onClick={() => setFormData({ ...formData, primaryGoal: goal })}
                   className={`px-3 py-2 text-xs rounded-xl text-left border transition-all cursor-pointer ${
                     formData.primaryGoal === goal
-                      ? 'bg-red-50 border-red-500 text-red-700 font-bold shadow-xs'
+                      ? 'bg-blue-50 border-blue-500 text-blue-700 font-bold shadow-xs'
                       : 'bg-white border-slate-300 text-slate-600 hover:border-slate-400'
                   }`}
                 >
@@ -320,7 +320,7 @@ export const AIAthleteAssessment: React.FC<AIAthleteAssessmentProps> = ({
           <button
             type="submit"
             disabled={isGenerating}
-            className="w-full mt-4 bg-gradient-to-r from-red-600 via-rose-600 to-blue-700 hover:from-red-700 hover:to-blue-800 text-white font-bold py-3.5 px-6 rounded-xl shadow-lg shadow-red-600/20 transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50"
+            className="w-full mt-4 bg-blue-600 hover:bg-blue-700 text-white font-bold py-3.5 px-6 rounded-xl shadow-sm shadow-blue-600/20 transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50"
           >
             {isGenerating ? (
               <>
@@ -368,7 +368,7 @@ export const AIAthleteAssessment: React.FC<AIAthleteAssessmentProps> = ({
               <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-md relative overflow-hidden">
                 <div className="flex flex-wrap items-center justify-between gap-4 mb-4">
                   <div>
-                    <span className="text-xs uppercase tracking-wider text-red-600 font-bold">Official AI Athletic Evaluation</span>
+                    <span className="text-xs uppercase tracking-wider text-blue-700 font-bold">Official AI Athletic Evaluation</span>
                     <h4 className="text-2xl font-black text-slate-900">{report.athleteName}</h4>
                     <p className="text-slate-500 text-xs mt-0.5">
                       Age: {report.calculatedAge} • BMI: {report.bmi} ({report.growthCategory})
@@ -376,7 +376,7 @@ export const AIAthleteAssessment: React.FC<AIAthleteAssessmentProps> = ({
                   </div>
                   <div className="text-right">
                     <span className="text-xs text-slate-500 uppercase font-semibold">RA Athletic Score</span>
-                    <div className="text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-amber-600">
+                    <div className="text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">
                       {report.overallScore} <span className="text-sm text-slate-400 font-normal">/ 100</span>
                     </div>
                   </div>
@@ -392,7 +392,7 @@ export const AIAthleteAssessment: React.FC<AIAthleteAssessmentProps> = ({
                       </div>
                       <div className="w-full bg-slate-200 h-2 rounded-full overflow-hidden">
                         <div
-                          className="bg-gradient-to-r from-blue-600 to-red-600 h-full rounded-full transition-all duration-700"
+                          className="bg-gradient-to-r from-blue-500 to-indigo-600 h-full rounded-full transition-all duration-700"
                           style={{ width: `${score}%` }}
                         />
                       </div>
@@ -419,7 +419,7 @@ export const AIAthleteAssessment: React.FC<AIAthleteAssessmentProps> = ({
                   {report.weeklyRoutine.map((item, idx) => (
                     <div key={idx} className="bg-slate-50 p-4 rounded-xl border border-slate-200">
                       <div className="flex items-center justify-between text-xs mb-2">
-                        <span className="font-bold text-red-600">{item.day}</span>
+                        <span className="font-bold text-blue-700">{item.day}</span>
                         <span className="text-slate-600 font-medium">{item.focus}</span>
                       </div>
                       <div className="space-y-2 mt-2">
@@ -478,7 +478,7 @@ export const AIAthleteAssessment: React.FC<AIAthleteAssessmentProps> = ({
                 <button
                   type="button"
                   onClick={() => onBookTrialWithAthlete && onBookTrialWithAthlete(report.athleteName, report.calculatedAge, formData.primarySport)}
-                  className="w-full sm:w-auto flex-1 bg-gradient-to-r from-red-600 to-rose-600 hover:from-red-700 hover:to-rose-700 text-white font-bold py-3.5 px-6 rounded-xl text-sm transition-all shadow-md shadow-red-600/20 flex items-center justify-center gap-2 cursor-pointer"
+                  className="w-full sm:w-auto flex-1 bg-blue-600 hover:bg-blue-700 text-white font-bold py-3.5 px-6 rounded-xl text-sm transition-all shadow-sm shadow-blue-600/20 flex items-center justify-center gap-2 cursor-pointer"
                 >
                   <Trophy className="w-4 h-4 text-amber-300" />
                   <span>Book Free Diagnostic Trial for {report.athleteName}</span>

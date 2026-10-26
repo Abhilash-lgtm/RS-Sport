@@ -64,7 +64,7 @@ export const SocialFloatingBar: React.FC = () => {
             href={`mailto:${CONTACT_INFO.email}`}
             className="flex items-center gap-3 p-2.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 hover:bg-slate-100 transition-colors"
           >
-            <div className="w-8 h-8 rounded-lg bg-red-600 flex items-center justify-center text-white shrink-0 shadow-xs">
+            <div className="w-8 h-8 rounded-lg bg-indigo-600 flex items-center justify-center text-white shrink-0 shadow-xs">
               <Mail className="w-4 h-4" />
             </div>
             <div className="text-xs truncate">
@@ -133,7 +133,7 @@ export const SocialFloatingBar: React.FC = () => {
         {/* Floating Toggle Hub */}
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="w-13 h-13 rounded-full bg-red-600 hover:bg-red-700 text-white flex items-center justify-center shadow-lg shadow-red-600/30 transition-all hover:scale-105 cursor-pointer"
+          className="w-13 h-13 rounded-full bg-blue-600 hover:bg-blue-700 text-white flex items-center justify-center shadow-md shadow-blue-600/30 transition-all hover:scale-105 cursor-pointer"
           title="Contact & Social Channels"
         >
           {isOpen ? <X className="w-6 h-6" /> : <Phone className="w-5 h-5" />}

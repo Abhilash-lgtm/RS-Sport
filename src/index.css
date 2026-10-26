@@ -2,10 +2,12 @@
 
 @layer base {
   :root {
-    --brand-navy: #0f2b5c;
-    --brand-crimson: #8a1538;
-    --brand-crimson-light: #b91c1c;
-    --brand-blue: #1d4ed8;
+    --brand-primary: #2563eb;
+    --brand-primary-hover: #1d4ed8;
+    --brand-accent: #0ea5e9;
+    --brand-emerald: #10b981;
+    --brand-navy: #0f172a;
+    --brand-surface: #f8fafc;
   }
 
   body {

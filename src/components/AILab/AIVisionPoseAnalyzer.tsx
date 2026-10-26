@@ -381,7 +381,7 @@ export const AIVisionPoseAnalyzer: React.FC = () => {
           <button
             onClick={() => handleModeChange('sprint')}
             className={`px-3 py-2 rounded-xl transition-all cursor-pointer ${
-              activeMode === 'sprint' ? 'bg-red-600 text-white shadow-sm' : 'text-slate-600 hover:text-slate-900'
+              activeMode === 'sprint' ? 'bg-blue-600 text-white shadow-sm' : 'text-slate-600 hover:text-slate-900'
             }`}
           >
             Sprint Stride
@@ -389,7 +389,7 @@ export const AIVisionPoseAnalyzer: React.FC = () => {
           <button
             onClick={() => handleModeChange('jump')}
             className={`px-3 py-2 rounded-xl transition-all cursor-pointer ${
-              activeMode === 'jump' ? 'bg-red-600 text-white shadow-sm' : 'text-slate-600 hover:text-slate-900'
+              activeMode === 'jump' ? 'bg-blue-600 text-white shadow-sm' : 'text-slate-600 hover:text-slate-900'
             }`}
           >
             Vertical Jump
@@ -397,7 +397,7 @@ export const AIVisionPoseAnalyzer: React.FC = () => {
           <button
             onClick={() => handleModeChange('agility')}
             className={`px-3 py-2 rounded-xl transition-all cursor-pointer ${
-              activeMode === 'agility' ? 'bg-red-600 text-white shadow-sm' : 'text-slate-600 hover:text-slate-900'
+              activeMode === 'agility' ? 'bg-blue-600 text-white shadow-sm' : 'text-slate-600 hover:text-slate-900'
             }`}
           >
             Agility Shuttle Cut
@@ -471,7 +471,7 @@ export const AIVisionPoseAnalyzer: React.FC = () => {
                   type="checkbox"
                   checked={showWireframe}
                   onChange={(e) => setShowWireframe(e.target.checked)}
-                  className="accent-red-600"
+                  className="accent-blue-600"
                 />
                 <span>Wireframe</span>
               </label>
@@ -481,7 +481,7 @@ export const AIVisionPoseAnalyzer: React.FC = () => {
                   type="checkbox"
                   checked={showAngles}
                   onChange={(e) => setShowAngles(e.target.checked)}
-                  className="accent-red-600"
+                  className="accent-blue-600"
                 />
                 <span>Kinematic Angles</span>
               </label>

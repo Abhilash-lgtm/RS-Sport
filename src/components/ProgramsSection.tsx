@@ -178,14 +178,14 @@ export const ProgramsSection: React.FC<ProgramsSectionProps> = ({
     <section id="programs" className="py-14 sm:py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto scroll-mt-20">
       {/* Section Header */}
       <div className="text-center max-w-3xl mx-auto mb-12">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-red-50 border border-red-200 text-red-600 text-xs font-bold uppercase tracking-wider mb-4 shadow-2xs">
-          <Trophy className="w-3.5 h-3.5" />
+        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200 text-blue-700 text-xs font-bold uppercase tracking-wider mb-4 shadow-2xs">
+          <Trophy className="w-3.5 h-3.5 text-blue-600" />
           <span>Kids Sports Programs</span>
         </div>
 
         <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-tight">
           Our Sports Programs for{' '}
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-600 via-rose-600 to-red-700">
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-600 to-sky-500">
             Growing Champions
           </span>
         </h2>
@@ -202,7 +202,7 @@ export const ProgramsSection: React.FC<ProgramsSectionProps> = ({
               onClick={() => setActiveFilter(tab)}
               className={`px-3 py-2 sm:px-4 sm:py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer ${
                 activeFilter === tab
-                  ? 'bg-red-600 text-white shadow-md shadow-red-600/20 scale-[1.03]'
+                  ? 'bg-blue-600 text-white shadow-sm shadow-blue-600/20 scale-[1.03]'
                   : 'bg-white text-slate-700 hover:text-slate-950 border border-slate-200 hover:border-slate-300 shadow-2xs'
               }`}
             >
@@ -218,7 +218,7 @@ export const ProgramsSection: React.FC<ProgramsSectionProps> = ({
           {/* Age Groups Table / Cards */}
           <div className="bg-white rounded-3xl border border-slate-200 p-6 sm:p-10 shadow-sm">
             <div className="mb-6">
-              <span className="text-xs font-black uppercase text-red-600 tracking-wider">
+              <span className="text-xs font-black uppercase text-blue-700 tracking-wider">
                 Age Groups & Developmental Focus
               </span>
               <h3 className="text-2xl font-black text-slate-900 mt-1">
@@ -233,10 +233,10 @@ export const ProgramsSection: React.FC<ProgramsSectionProps> = ({
               {AGE_GROUPS.map((ag, i) => (
                 <div
                   key={i}
-                  className="p-5 rounded-2xl bg-slate-50 border border-slate-200/90 hover:border-red-300 transition-all flex flex-col justify-between"
+                  className="p-5 rounded-2xl bg-slate-50 border border-slate-200/90 hover:border-blue-300 transition-all flex flex-col justify-between"
                 >
                   <div>
-                    <span className="inline-block bg-red-600 text-white text-xs font-black px-2.5 py-0.5 rounded-lg mb-2">
+                    <span className="inline-block bg-blue-600 text-white text-xs font-black px-2.5 py-0.5 rounded-lg mb-2">
                       {ag.range}
                     </span>
                     <h4 className="text-sm font-bold text-slate-900 mb-1.5">{ag.title}</h4>
@@ -261,7 +261,7 @@ export const ProgramsSection: React.FC<ProgramsSectionProps> = ({
           {/* 5-Step Session Flow */}
           <div className="bg-white rounded-3xl border border-slate-200 p-6 sm:p-10 shadow-sm">
             <div className="mb-6">
-              <span className="text-xs font-black uppercase text-red-600 tracking-wider">
+              <span className="text-xs font-black uppercase text-blue-700 tracking-wider">
                 Session Structure
               </span>
               <h3 className="text-2xl font-black text-slate-900 mt-1">
@@ -279,7 +279,7 @@ export const ProgramsSection: React.FC<ProgramsSectionProps> = ({
                   className="p-4 rounded-2xl bg-slate-50 border border-slate-200 flex flex-col justify-between"
                 >
                   <div>
-                    <span className="w-8 h-8 rounded-xl bg-red-600 text-white font-black text-xs flex items-center justify-center mb-3 shadow-2xs">
+                    <span className="w-8 h-8 rounded-xl bg-blue-600 text-white font-black text-xs flex items-center justify-center mb-3 shadow-2xs">
                       {s.step}
                     </span>
                     <h4 className="text-xs sm:text-sm font-bold text-slate-900 mb-1">
@@ -385,8 +385,8 @@ export const ProgramsSection: React.FC<ProgramsSectionProps> = ({
                     onClick={() => onBookTrialForProgram(prog.name)}
                     className={`flex-1 py-3 px-4 rounded-xl font-bold text-xs sm:text-sm flex items-center justify-center gap-2 transition-all cursor-pointer ${
                       isGymnastics
-                        ? 'bg-purple-600 hover:bg-purple-700 text-white shadow-md shadow-purple-600/20'
-                        : 'bg-red-600 hover:bg-red-700 text-white shadow-md shadow-red-600/20'
+                        ? 'bg-purple-600 hover:bg-purple-700 text-white shadow-sm shadow-purple-600/20'
+                        : 'bg-blue-600 hover:bg-blue-700 text-white shadow-sm shadow-blue-600/20'
                     }`}
                   >
                     <span>{isGymnastics ? 'Discover Gymnastics →' : `Enrol in ${prog.name}`}</span>
@@ -408,10 +408,10 @@ export const ProgramsSection: React.FC<ProgramsSectionProps> = ({
       </div>
 
       {/* Bottom Multi-Sport Diagnostics Callout */}
-      <div className="mt-14 bg-white rounded-3xl p-6 sm:p-8 border-2 border-red-100 shadow-md flex flex-col md:flex-row items-center justify-between gap-6">
+      <div className="mt-14 bg-gradient-to-br from-blue-50/40 via-white to-slate-50/60 rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm flex flex-col md:flex-row items-center justify-between gap-6">
         <div className="space-y-1.5 text-center md:text-left">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-50 text-xs font-bold text-red-700 uppercase tracking-wider">
-            <Star className="w-3.5 h-3.5 fill-red-600 text-red-600" />
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 text-xs font-bold text-blue-700 uppercase tracking-wider border border-blue-200">
+            <Star className="w-3.5 h-3.5 fill-blue-600 text-blue-600" />
             <span>Football • Athletics • Basketball • Cricket • Gymnastics</span>
           </div>
           <h3 className="text-xl sm:text-2xl font-black text-slate-900">
@@ -424,7 +424,7 @@ export const ProgramsSection: React.FC<ProgramsSectionProps> = ({
 
         <button
           onClick={() => onBookTrialForProgram('Multi-Sport Diagnostic')}
-          className="bg-red-600 hover:bg-red-700 text-white font-extrabold text-sm py-3.5 px-7 rounded-2xl shadow-md shadow-red-600/20 transition-all hover:scale-105 cursor-pointer whitespace-nowrap"
+          className="bg-blue-600 hover:bg-blue-700 text-white font-bold text-sm py-3.5 px-7 rounded-2xl shadow-sm shadow-blue-600/20 transition-all hover:scale-105 cursor-pointer whitespace-nowrap"
         >
           Book Free Diagnostic Trial →
         </button>

@@ -117,8 +117,8 @@ export const TrialBookingModal: React.FC<TrialBookingModalProps> = ({
           <div>
             {/* Header */}
             <div className="mb-6">
-              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-red-50 border border-red-200 text-red-700 text-xs font-bold uppercase tracking-wider mb-2 shadow-xs">
-                <Trophy className="w-3.5 h-3.5" />
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-50 border border-blue-200 text-blue-700 text-xs font-bold uppercase tracking-wider mb-2 shadow-2xs">
+                <Trophy className="w-3.5 h-3.5 text-blue-600" />
                 <span>100% Complimentary Diagnostic Session</span>
               </div>
               <h3 className="text-2xl font-black text-slate-900">Book Your Child’s Free Trial</h3>
@@ -140,7 +140,7 @@ export const TrialBookingModal: React.FC<TrialBookingModalProps> = ({
                     placeholder="e.g. Advait Singh"
                     value={childName}
                     onChange={(e) => setChildName(e.target.value)}
-                    className="w-full bg-white border border-slate-300 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-red-500 shadow-2xs font-medium"
+                    className="w-full bg-white border border-slate-300 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-blue-500 shadow-2xs font-medium"
                   />
                 </div>
 
@@ -155,7 +155,7 @@ export const TrialBookingModal: React.FC<TrialBookingModalProps> = ({
                     required
                     value={childAge}
                     onChange={(e) => setChildAge(Number(e.target.value))}
-                    className="w-full bg-white border border-slate-300 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-red-500 shadow-2xs font-medium"
+                    className="w-full bg-white border border-slate-300 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-blue-500 shadow-2xs font-medium"
                   />
                 </div>
               </div>
@@ -171,7 +171,7 @@ export const TrialBookingModal: React.FC<TrialBookingModalProps> = ({
                     placeholder="e.g. Meera Singh"
                     value={parentName}
                     onChange={(e) => setParentName(e.target.value)}
-                    className="w-full bg-white border border-slate-300 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-red-500 shadow-2xs font-medium"
+                    className="w-full bg-white border border-slate-300 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-blue-500 shadow-2xs font-medium"
                   />
                 </div>
 
@@ -185,7 +185,7 @@ export const TrialBookingModal: React.FC<TrialBookingModalProps> = ({
                     placeholder="+91 98765 43210"
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
-                    className="w-full bg-white border border-slate-300 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-red-500 shadow-2xs font-medium"
+                    className="w-full bg-white border border-slate-300 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-blue-500 shadow-2xs font-medium"
                   />
                 </div>
               </div>
@@ -197,7 +197,7 @@ export const TrialBookingModal: React.FC<TrialBookingModalProps> = ({
                 <select
                   value={selectedHub}
                   onChange={(e) => setSelectedHub(e.target.value)}
-                  className="w-full bg-white border border-slate-300 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-red-500 shadow-2xs font-medium"
+                  className="w-full bg-white border border-slate-300 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-blue-500 shadow-2xs font-medium"
                 >
                   {ACADEMY_HUBS.map((hub) => (
                     <option key={hub.id} value={hub.name}>
@@ -215,7 +215,7 @@ export const TrialBookingModal: React.FC<TrialBookingModalProps> = ({
                   <select
                     value={selectedSport}
                     onChange={(e) => setSelectedSport(e.target.value)}
-                    className="w-full bg-white border border-slate-300 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-red-500 shadow-2xs font-medium"
+                    className="w-full bg-white border border-slate-300 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-blue-500 shadow-2xs font-medium"
                   >
                     <option value="Football">Football (Ball control & teamwork)</option>
                     <option value="Athletics">Athletics (Running, jumping & speed)</option>
@@ -235,7 +235,7 @@ export const TrialBookingModal: React.FC<TrialBookingModalProps> = ({
                   <select
                     value={preferredSlot}
                     onChange={(e) => setPreferredSlot(e.target.value)}
-                    className="w-full bg-white border border-slate-300 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-red-500 shadow-2xs font-medium"
+                    className="w-full bg-white border border-slate-300 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-blue-500 shadow-2xs font-medium"
                   >
                     <option value="Upcoming Saturday 07:30 AM">Saturday Morning (07:30 AM)</option>
                     <option value="Upcoming Saturday 05:00 PM">Saturday Evening (05:00 PM)</option>
@@ -249,7 +249,7 @@ export const TrialBookingModal: React.FC<TrialBookingModalProps> = ({
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-gradient-to-r from-red-600 via-rose-600 to-blue-700 hover:from-red-700 hover:to-blue-800 disabled:opacity-75 text-white font-black py-3.5 px-6 rounded-xl text-sm transition-all shadow-md shadow-red-600/20 flex items-center justify-center gap-2 cursor-pointer"
+                  className="w-full bg-blue-600 hover:bg-blue-700 disabled:opacity-75 text-white font-bold py-3.5 px-6 rounded-xl text-sm transition-all shadow-sm shadow-blue-600/20 flex items-center justify-center gap-2 cursor-pointer"
                 >
                   <CheckCircle2 className="w-5 h-5" />
                   <span>{isSubmitting ? 'Registering...' : 'Confirm Free Trial Registration'}</span>
@@ -281,10 +281,10 @@ export const TrialBookingModal: React.FC<TrialBookingModalProps> = ({
             </div>
 
             {/* Clean Digital Pass Card */}
-            <div className="bg-slate-50 border-2 border-red-500 rounded-2xl p-6 text-left relative overflow-hidden shadow-md">
+            <div className="bg-slate-50 border-2 border-blue-500 rounded-2xl p-6 text-left relative overflow-hidden shadow-sm">
               <div className="flex items-center justify-between border-b border-slate-200 pb-3 mb-4">
                 <div className="flex items-center gap-2">
-                  <div className="w-8 h-8 rounded-lg bg-red-600 flex items-center justify-center text-white font-black text-xs shadow-xs">
+                  <div className="w-8 h-8 rounded-lg bg-blue-600 flex items-center justify-center text-white font-black text-xs shadow-xs">
                     RA
                   </div>
                   <div>
@@ -293,7 +293,7 @@ export const TrialBookingModal: React.FC<TrialBookingModalProps> = ({
                   </div>
                 </div>
 
-                <span className="text-xs font-mono font-bold text-red-700 bg-red-50 px-2 py-0.5 rounded border border-red-200">
+                <span className="text-xs font-mono font-bold text-blue-700 bg-blue-50 px-2 py-0.5 rounded border border-blue-200">
                   {bookingPass?.id}
                 </span>
               </div>
@@ -306,7 +306,7 @@ export const TrialBookingModal: React.FC<TrialBookingModalProps> = ({
 
                 <div>
                   <span className="text-slate-400 block text-[10px] uppercase font-bold">Sport / Drill</span>
-                  <span className="font-bold text-red-600">{bookingPass?.sport}</span>
+                  <span className="font-bold text-blue-600">{bookingPass?.sport}</span>
                 </div>
 
                 <div className="col-span-2">
@@ -340,7 +340,7 @@ export const TrialBookingModal: React.FC<TrialBookingModalProps> = ({
               <button
                 type="button"
                 onClick={handleModalClose}
-                className="flex-1 bg-red-600 hover:bg-red-700 text-white font-bold py-3 rounded-xl text-xs transition-colors cursor-pointer shadow-sm shadow-red-600/20"
+                className="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-xl text-xs transition-colors cursor-pointer shadow-sm shadow-blue-600/20"
               >
                 Done & Return to Site
               </button>

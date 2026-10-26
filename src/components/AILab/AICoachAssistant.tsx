@@ -170,7 +170,7 @@ export const AICoachAssistant: React.FC<AICoachAssistantProps> = ({
       {/* Header */}
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-200 pb-6 mb-6">
         <div className="flex items-center gap-3">
-          <div className="w-12 h-12 rounded-2xl bg-gradient-to-tr from-red-600 to-rose-700 flex items-center justify-center text-white shadow-md shadow-red-600/20">
+          <div className="w-12 h-12 rounded-2xl bg-blue-600 flex items-center justify-center text-white shadow-sm shadow-blue-600/20">
             <Bot className="w-6 h-6" />
           </div>
           <div>
@@ -231,7 +231,7 @@ export const AICoachAssistant: React.FC<AICoachAssistantProps> = ({
             className={`flex items-start gap-3 ${m.sender === 'user' ? 'justify-end' : 'justify-start'}`}
           >
             {m.sender === 'coach' && (
-              <div className="w-8 h-8 rounded-xl bg-red-600 flex items-center justify-center text-white shrink-0 mt-1 shadow-xs">
+              <div className="w-8 h-8 rounded-xl bg-blue-600 flex items-center justify-center text-white shrink-0 mt-1 shadow-xs">
                 <Bot className="w-4 h-4" />
               </div>
             )}
@@ -249,7 +249,7 @@ export const AICoachAssistant: React.FC<AICoachAssistantProps> = ({
                 <button
                   type="button"
                   onClick={() => handleActionButton(m.actionButton!.action)}
-                  className="mt-3 inline-flex items-center gap-2 bg-gradient-to-r from-red-600 to-rose-600 hover:from-red-700 hover:to-rose-700 text-white text-xs font-bold py-2 px-3.5 rounded-xl shadow-xs transition-all cursor-pointer"
+                  className="mt-3 inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold py-2 px-3.5 rounded-xl shadow-xs transition-all cursor-pointer"
                 >
                   <Trophy className="w-3.5 h-3.5 text-amber-300" />
                   <span>{m.actionButton.label}</span>
@@ -268,7 +268,7 @@ export const AICoachAssistant: React.FC<AICoachAssistantProps> = ({
 
         {isTyping && (
           <div className="flex items-center gap-2 text-xs text-slate-500 bg-white p-3 rounded-2xl w-fit border border-slate-200 shadow-xs">
-            <Bot className="w-4 h-4 text-red-600 animate-spin" />
+            <Bot className="w-4 h-4 text-blue-600 animate-spin" />
             <span>Coach RA is formulating athletic advice...</span>
           </div>
         )}
@@ -288,11 +288,11 @@ export const AICoachAssistant: React.FC<AICoachAssistantProps> = ({
           placeholder="Ask Coach RA about sprint posture, diet, training frequency, or trial booking..."
           value={inputText}
           onChange={(e) => setInputText(e.target.value)}
-          className="flex-1 bg-white border border-slate-300 rounded-2xl px-5 py-3.5 text-slate-900 text-sm focus:outline-none focus:border-red-500 transition-colors shadow-2xs"
+          className="flex-1 bg-white border border-slate-300 rounded-2xl px-5 py-3.5 text-slate-900 text-sm focus:outline-none focus:border-blue-500 transition-colors shadow-2xs"
         />
         <button
           type="submit"
-          className="bg-red-600 hover:bg-red-700 text-white p-3.5 rounded-2xl transition-colors cursor-pointer shrink-0 shadow-md shadow-red-600/20"
+          className="bg-blue-600 hover:bg-blue-700 text-white p-3.5 rounded-2xl transition-colors cursor-pointer shrink-0 shadow-sm shadow-blue-600/20"
           title="Send message"
         >
           <Send className="w-5 h-5" />

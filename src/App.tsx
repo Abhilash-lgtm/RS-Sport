@@ -44,7 +44,7 @@ export const App: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white text-slate-900 selection:bg-red-600 selection:text-white flex flex-col font-sans relative">
+    <div className="min-h-screen bg-white text-slate-900 selection:bg-blue-600 selection:text-white flex flex-col font-sans relative">
       {/* Top Sticky Navbar with dynamic active color-change navigation */}
       <Navbar
         onOpenTrialModal={() => handleOpenTrial()}

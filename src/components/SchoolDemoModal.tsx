@@ -89,8 +89,8 @@ export const SchoolDemoModal: React.FC<SchoolDemoModalProps> = ({ isOpen, onClos
         {step === 1 ? (
           <div>
             <div className="mb-6">
-              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-red-50 border border-red-200 text-red-700 text-xs font-bold uppercase tracking-wider mb-2 shadow-xs">
-                <Trophy className="w-3.5 h-3.5" />
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-50 border border-blue-200 text-blue-700 text-xs font-bold uppercase tracking-wider mb-2 shadow-2xs">
+                <Trophy className="w-3.5 h-3.5 text-blue-600" />
                 <span>Complimentary On-Campus Session</span>
               </div>
               <h3 className="text-2xl font-black text-slate-900">
@@ -113,7 +113,7 @@ export const SchoolDemoModal: React.FC<SchoolDemoModalProps> = ({ isOpen, onClos
                     placeholder="e.g. Lotus Valley Preschool"
                     value={schoolName}
                     onChange={(e) => setSchoolName(e.target.value)}
-                    className="w-full bg-white border border-slate-300 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-red-500 shadow-2xs font-medium"
+                    className="w-full bg-white border border-slate-300 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-blue-500 shadow-2xs font-medium"
                   />
                 </div>
 
@@ -124,7 +124,7 @@ export const SchoolDemoModal: React.FC<SchoolDemoModalProps> = ({ isOpen, onClos
                   <select
                     value={institutionType}
                     onChange={(e) => setInstitutionType(e.target.value)}
-                    className="w-full bg-white border border-slate-300 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-red-500 shadow-2xs font-medium"
+                    className="w-full bg-white border border-slate-300 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-blue-500 shadow-2xs font-medium"
                   >
                     <option value="Preschool (Ages 3-6)">Preschool / Kindergarten (Ages 3-6)</option>
                     <option value="Primary School (Grades 1-5)">Primary School (Grades 1-5)</option>
@@ -145,7 +145,7 @@ export const SchoolDemoModal: React.FC<SchoolDemoModalProps> = ({ isOpen, onClos
                     placeholder="e.g. Mrs. Lakshmi Rao"
                     value={contactPerson}
                     onChange={(e) => setContactPerson(e.target.value)}
-                    className="w-full bg-white border border-slate-300 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-red-500 shadow-2xs font-medium"
+                    className="w-full bg-white border border-slate-300 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-blue-500 shadow-2xs font-medium"
                   />
                 </div>
 
@@ -159,7 +159,7 @@ export const SchoolDemoModal: React.FC<SchoolDemoModalProps> = ({ isOpen, onClos
                     placeholder="e.g. Principal / Sports Coordinator"
                     value={role}
                     onChange={(e) => setRole(e.target.value)}
-                    className="w-full bg-white border border-slate-300 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-red-500 shadow-2xs font-medium"
+                    className="w-full bg-white border border-slate-300 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-blue-500 shadow-2xs font-medium"
                   />
                 </div>
               </div>
@@ -175,7 +175,7 @@ export const SchoolDemoModal: React.FC<SchoolDemoModalProps> = ({ isOpen, onClos
                     placeholder="+91 98765 43210"
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
-                    className="w-full bg-white border border-slate-300 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-red-500 shadow-2xs font-medium"
+                    className="w-full bg-white border border-slate-300 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-blue-500 shadow-2xs font-medium"
                   />
                 </div>
 
@@ -189,7 +189,7 @@ export const SchoolDemoModal: React.FC<SchoolDemoModalProps> = ({ isOpen, onClos
                     placeholder="principal@school.com"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="w-full bg-white border border-slate-300 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-red-500 shadow-2xs font-medium"
+                    className="w-full bg-white border border-slate-300 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-blue-500 shadow-2xs font-medium"
                   />
                 </div>
               </div>
@@ -202,7 +202,7 @@ export const SchoolDemoModal: React.FC<SchoolDemoModalProps> = ({ isOpen, onClos
                   <select
                     value={selectedService}
                     onChange={(e) => setSelectedService(e.target.value)}
-                    className="w-full bg-white border border-slate-300 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-red-500 shadow-2xs font-medium"
+                    className="w-full bg-white border border-slate-300 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-blue-500 shadow-2xs font-medium"
                   >
                     <option value="Physical Education Curriculum">Physical Education Curriculum</option>
                     <option value="Kids Sports Classes & FMS">Kids' Sports Classes & FMS</option>
@@ -221,7 +221,7 @@ export const SchoolDemoModal: React.FC<SchoolDemoModalProps> = ({ isOpen, onClos
                     placeholder="e.g. Gachibowli / Madhapur / Kukatpally"
                     value={locationArea}
                     onChange={(e) => setLocationArea(e.target.value)}
-                    className="w-full bg-white border border-slate-300 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-red-500 shadow-2xs font-medium"
+                    className="w-full bg-white border border-slate-300 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-blue-500 shadow-2xs font-medium"
                   />
                 </div>
               </div>
@@ -234,7 +234,7 @@ export const SchoolDemoModal: React.FC<SchoolDemoModalProps> = ({ isOpen, onClos
                   type="date"
                   value={preferredDate}
                   onChange={(e) => setPreferredDate(e.target.value)}
-                  className="w-full bg-white border border-slate-300 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-red-500 shadow-2xs font-medium"
+                  className="w-full bg-white border border-slate-300 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-blue-500 shadow-2xs font-medium"
                 />
               </div>
 
@@ -242,7 +242,7 @@ export const SchoolDemoModal: React.FC<SchoolDemoModalProps> = ({ isOpen, onClos
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-gradient-to-r from-red-600 via-rose-600 to-blue-700 hover:from-red-700 hover:to-blue-800 disabled:opacity-75 text-white font-black py-3.5 px-6 rounded-xl text-sm transition-all shadow-md shadow-red-600/20 flex items-center justify-center gap-2 cursor-pointer"
+                  className="w-full bg-blue-600 hover:bg-blue-700 disabled:opacity-75 text-white font-bold py-3.5 px-6 rounded-xl text-sm transition-all shadow-sm shadow-blue-600/20 flex items-center justify-center gap-2 cursor-pointer"
                 >
                   <Trophy className="w-5 h-5 text-amber-300" />
                   <span>{isSubmitting ? 'Submitting...' : 'Submit Demo Session Request'}</span>
@@ -272,10 +272,10 @@ export const SchoolDemoModal: React.FC<SchoolDemoModalProps> = ({ isOpen, onClos
               </p>
             </div>
 
-            <div className="bg-slate-50 border-2 border-red-500 rounded-2xl p-6 text-left relative overflow-hidden shadow-md">
+            <div className="bg-slate-50 border-2 border-blue-500 rounded-2xl p-6 text-left relative overflow-hidden shadow-sm">
               <div className="flex items-center justify-between border-b border-slate-200 pb-3 mb-4">
                 <div className="flex items-center gap-2">
-                  <div className="w-8 h-8 rounded-lg bg-red-600 flex items-center justify-center text-white font-black text-xs">
+                  <div className="w-8 h-8 rounded-lg bg-blue-600 flex items-center justify-center text-white font-black text-xs">
                     RA
                   </div>
                   <div>
@@ -284,7 +284,7 @@ export const SchoolDemoModal: React.FC<SchoolDemoModalProps> = ({ isOpen, onClos
                   </div>
                 </div>
 
-                <span className="text-xs font-mono font-bold text-red-700 bg-red-50 px-2 py-0.5 rounded border border-red-200">
+                <span className="text-xs font-mono font-bold text-blue-700 bg-blue-50 px-2 py-0.5 rounded border border-blue-200">
                   {demoId}
                 </span>
               </div>
@@ -302,7 +302,7 @@ export const SchoolDemoModal: React.FC<SchoolDemoModalProps> = ({ isOpen, onClos
 
                 <div className="col-span-2">
                   <span className="text-slate-400 block text-[10px] uppercase font-bold">Program Focus</span>
-                  <span className="font-bold text-red-600">{selectedService}</span>
+                  <span className="font-bold text-blue-600">{selectedService}</span>
                 </div>
 
                 <div className="col-span-2 bg-white p-2.5 rounded-xl border border-slate-200 flex items-center justify-between shadow-2xs">
@@ -334,7 +334,7 @@ export const SchoolDemoModal: React.FC<SchoolDemoModalProps> = ({ isOpen, onClos
               <button
                 type="button"
                 onClick={handleModalClose}
-                className="flex-1 bg-red-600 hover:bg-red-700 text-white font-bold py-3 rounded-xl text-xs transition-colors cursor-pointer shadow-xs"
+                className="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-xl text-xs transition-colors cursor-pointer shadow-xs"
               >
                 Done
               </button>
