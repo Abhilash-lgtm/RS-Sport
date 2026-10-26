@@ -148,7 +148,7 @@ export const AIAthleteAssessment: React.FC<AIAthleteAssessmentProps> = ({
   };
 
   return (
-    <div className="bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 lg:p-10 shadow-xl shadow-slate-200/60 relative overflow-hidden">
+    <div className="bg-white border border-slate-200 rounded-2xl sm:rounded-3xl p-4 sm:p-8 lg:p-10 shadow-xl shadow-slate-200/60 relative overflow-hidden">
       {/* Decorative clean ambient glows */}
       <div className="absolute -top-24 -right-24 w-80 h-80 bg-red-100/50 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute -bottom-24 -left-24 w-80 h-80 bg-blue-100/50 rounded-full blur-3xl pointer-events-none" />
@@ -176,7 +176,7 @@ export const AIAthleteAssessment: React.FC<AIAthleteAssessmentProps> = ({
       {/* Main Grid: Form on Left, Output on Right */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
         {/* Left: Input Form */}
-        <form onSubmit={handleGenerate} className="lg:col-span-5 space-y-5 bg-slate-50/90 p-6 rounded-2xl border border-slate-200">
+        <form onSubmit={handleGenerate} className="lg:col-span-5 space-y-4 sm:space-y-5 bg-slate-50/90 p-4 sm:p-6 rounded-2xl border border-slate-200">
           <h4 className="text-slate-900 font-bold text-base flex items-center gap-2 pb-2 border-b border-slate-200">
             <Zap className="w-4 h-4 text-amber-500" />
             Step 1: Athlete Biological Details

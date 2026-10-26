@@ -40,7 +40,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenTrialModal }) 
   ];
 
   return (
-    <section id="about" className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto scroll-mt-20">
+    <section id="about" className="py-14 sm:py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto scroll-mt-20">
       {/* Section Header */}
       <div className="text-center max-w-3xl mx-auto mb-16">
         <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-red-50 border border-red-200 text-red-700 text-xs font-bold uppercase tracking-wider mb-4 shadow-xs">
@@ -62,7 +62,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenTrialModal }) 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mb-16">
         {/* Left Column: Vision, Mission & Philosophy */}
         <div className="lg:col-span-6 space-y-6">
-          <div className="bg-white p-8 rounded-3xl border border-slate-200 shadow-md shadow-slate-200/50 space-y-4">
+          <div className="bg-white p-5 sm:p-8 rounded-3xl border border-slate-200 shadow-md shadow-slate-200/50 space-y-4">
             <h3 className="text-xl font-bold text-slate-900 flex items-center gap-2">
               <span className="w-2.5 h-2.5 rounded-full bg-red-600" />
               Our Philosophy & Calling
@@ -170,7 +170,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenTrialModal }) 
       </div>
 
       {/* Official Tagline & Motto Card - Clean White Design */}
-      <div className="bg-white border-2 border-red-100 text-slate-900 p-8 sm:p-12 rounded-3xl shadow-lg shadow-red-500/5 text-center relative overflow-hidden">
+      <div className="bg-white border-2 border-red-100 text-slate-900 p-6 sm:p-12 rounded-3xl shadow-lg shadow-red-500/5 text-center relative overflow-hidden">
         <div className="max-w-3xl mx-auto space-y-4 relative z-10">
           <span className="inline-block text-[11px] uppercase tracking-widest font-extrabold text-red-700 bg-red-50 border border-red-200 px-3.5 py-1 rounded-full shadow-2xs font-mono">
             OUR OFFICIAL TAGLINE

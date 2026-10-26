@@ -175,7 +175,7 @@ export const ProgramsSection: React.FC<ProgramsSectionProps> = ({
     : KIDS_PROGRAMS.filter(p => p.category === activeFilter);
 
   return (
-    <section id="programs" className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto scroll-mt-20">
+    <section id="programs" className="py-14 sm:py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto scroll-mt-20">
       {/* Section Header */}
       <div className="text-center max-w-3xl mx-auto mb-12">
         <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-red-50 border border-red-200 text-red-600 text-xs font-bold uppercase tracking-wider mb-4 shadow-2xs">
@@ -195,12 +195,12 @@ export const ProgramsSection: React.FC<ProgramsSectionProps> = ({
         </p>
 
         {/* Category Filter Pills */}
-        <div className="mt-8 flex flex-wrap items-center justify-center gap-2">
+        <div className="mt-6 sm:mt-8 flex flex-wrap items-center justify-center gap-1.5 sm:gap-2">
           {filterTabs.map((tab) => (
             <button
               key={tab}
               onClick={() => setActiveFilter(tab)}
-              className={`px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer ${
+              className={`px-3 py-2 sm:px-4 sm:py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer ${
                 activeFilter === tab
                   ? 'bg-red-600 text-white shadow-md shadow-red-600/20 scale-[1.03]'
                   : 'bg-white text-slate-700 hover:text-slate-950 border border-slate-200 hover:border-slate-300 shadow-2xs'

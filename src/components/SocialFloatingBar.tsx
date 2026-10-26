@@ -7,10 +7,10 @@ export const SocialFloatingBar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3 font-sans">
+    <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 flex flex-col items-end gap-2.5 sm:gap-3 font-sans">
       {/* Expanded Quick Contact Card */}
       {isOpen && (
-        <div className="bg-white border border-slate-200 rounded-3xl p-5 shadow-2xl w-72 text-slate-800 animate-fadeIn space-y-4">
+        <div className="bg-white border border-slate-200 rounded-3xl p-5 shadow-2xl w-72 max-w-[calc(100vw-2rem)] text-slate-800 animate-fadeIn space-y-4">
           <div className="flex items-center justify-between border-b border-slate-100 pb-3">
             <div>
               <h5 className="text-xs font-black uppercase tracking-wider text-slate-900">

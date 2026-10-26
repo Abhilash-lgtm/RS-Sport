@@ -52,23 +52,24 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenTrialModal, onNavigateToAI
   return (
     <header className="sticky top-0 z-50 w-full backdrop-blur-xl bg-white/95 border-b border-slate-200/80 shadow-xs">
       {/* Top micro-announcement banner with verified contact and social channels */}
-      <div className="bg-slate-50 text-slate-700 text-[11px] sm:text-xs py-1.5 px-4 border-b border-slate-200">
-        <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
-          <div className="flex items-center gap-2">
-            <span className="bg-red-600 text-white font-bold px-2 py-0.5 rounded-full text-[10px] uppercase tracking-wider">
-              School Enquiries Welcome
+      <div className="bg-slate-50 text-slate-700 text-[11px] sm:text-xs py-1.5 px-3 sm:px-4 border-b border-slate-200">
+        <div className="max-w-7xl mx-auto flex items-center justify-between gap-2">
+          <div className="flex items-center gap-2 min-w-0">
+            <span className="bg-red-600 text-white font-bold px-2 py-0.5 rounded-full text-[10px] uppercase tracking-wider shrink-0">
+              School Enquiries
             </span>
-            <span className="font-semibold text-slate-800">
+            <span className="font-semibold text-slate-800 hidden md:inline truncate">
               Building Active Kids, Creating a Healthier Future • Fun • Fitness • Sports • Confidence
             </span>
           </div>
 
-          <div className="flex items-center gap-4 text-slate-600">
+          <div className="flex items-center gap-3 sm:gap-4 text-slate-600 shrink-0">
             <a
               href={`tel:${CONTACT_INFO.rawPhone}`}
-              className="flex items-center gap-1 font-bold text-slate-900 hover:text-red-600 transition-colors"
+              className="flex items-center gap-1 font-bold text-slate-900 hover:text-red-600 transition-colors text-[11px] sm:text-xs"
             >
-              <Phone className="w-3 h-3 text-emerald-600" /> {CONTACT_INFO.phone}
+              <Phone className="w-3 h-3 text-emerald-600 shrink-0" />
+              <span>{CONTACT_INFO.phone}</span>
             </a>
 
             <a
@@ -112,8 +113,8 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenTrialModal, onNavigateToAI
       </div>
 
       {/* Main navigation */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20 gap-4 lg:gap-8">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-16 sm:h-20 gap-3 sm:gap-4 lg:gap-8">
           {/* Left: Brand Logo & Title */}
           <div className="flex-1 flex items-center justify-start min-w-0">
             <a

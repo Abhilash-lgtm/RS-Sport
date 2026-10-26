@@ -45,17 +45,17 @@ export const Hero: React.FC<HeroProps> = ({
   const rec = getQuickRecommendation();
 
   return (
-    <section id="home" className="relative overflow-hidden bg-white pt-12 pb-20 lg:pt-20 lg:pb-28 border-b border-slate-200/70 scroll-mt-24">
+    <section id="home" className="relative overflow-hidden bg-white pt-8 pb-14 sm:pt-12 sm:pb-20 lg:pt-20 lg:pb-28 border-b border-slate-200/70 scroll-mt-20">
       {/* Background ambient clean gradients */}
       <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-gradient-to-bl from-red-50/70 via-blue-50/50 to-transparent rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-gradient-to-tr from-slate-100 via-rose-50/30 to-transparent rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
           {/* Left Column: Headlines & Call to Actions */}
-          <div className="lg:col-span-7 space-y-6 text-center lg:text-left">
+          <div className="lg:col-span-7 space-y-5 sm:space-y-6 text-center lg:text-left">
             {/* Pill Badge with Official Tagline */}
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-100 border border-slate-200 text-slate-700 text-xs font-semibold shadow-xs">
+            <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 rounded-full bg-slate-100 border border-slate-200 text-slate-700 text-[11px] sm:text-xs font-semibold shadow-xs">
               <span className="w-2 h-2 rounded-full bg-red-600 animate-pulse" />
               <span className="text-red-700 font-bold">RAISING ATHLETICS SPORTS</span>
               <span className="text-slate-400">•</span>
@@ -63,7 +63,7 @@ export const Hero: React.FC<HeroProps> = ({
             </div>
 
             {/* Kinetic Main Headline */}
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-slate-900 tracking-tight leading-[1.08]">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-slate-900 tracking-tight leading-[1.12] sm:leading-[1.08]">
               Athletics Today, A{' '}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-600 via-rose-600 to-blue-700">
                 Healthier Future
@@ -72,7 +72,7 @@ export const Hero: React.FC<HeroProps> = ({
             </h1>
 
             {/* Slogan & Value Prop */}
-            <p className="text-lg sm:text-xl text-slate-700 font-medium max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+            <p className="text-base sm:text-lg lg:text-xl text-slate-700 font-medium max-w-2xl mx-auto lg:mx-0 leading-relaxed">
               At <strong className="text-slate-900">RA Sports (Raising Athletics Sports)</strong>, we believe every child deserves the opportunity to grow through sports, physical activity, and fun learning.
             </p>
 
