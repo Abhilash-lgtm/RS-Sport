@@ -45,7 +45,7 @@ export const Hero: React.FC<HeroProps> = ({
   const rec = getQuickRecommendation();
 
   return (
-    <section className="relative overflow-hidden bg-white pt-12 pb-20 lg:pt-20 lg:pb-28 border-b border-slate-200/70">
+    <section id="home" className="relative overflow-hidden bg-white pt-12 pb-20 lg:pt-20 lg:pb-28 border-b border-slate-200/70 scroll-mt-24">
       {/* Background ambient clean gradients */}
       <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-gradient-to-bl from-red-50/70 via-blue-50/50 to-transparent rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-gradient-to-tr from-slate-100 via-rose-50/30 to-transparent rounded-full blur-3xl pointer-events-none" />

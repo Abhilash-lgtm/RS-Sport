@@ -11,10 +11,10 @@ interface NavbarProps {
 
 export const Navbar: React.FC<NavbarProps> = ({ onOpenTrialModal, onNavigateToAILab, onOpenDemoModal }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [activeNav, setActiveNav] = useState<string>('#schools');
+  const [activeNav, setActiveNav] = useState<string>('#home');
 
   const navLinks = [
-    { label: 'Schools & Preschools', href: '#schools' },
+    { label: 'Home', href: '#home' },
     { label: 'About Us', href: '#about' },
     { label: 'Kids Programs', href: '#programs' },
     { label: 'AI Athletic Lab', href: '#ai-lab', isAI: true },
@@ -117,7 +117,11 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenTrialModal, onNavigateToAI
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo and Brand Title */}
-          <a href="#" className="flex items-center gap-3.5 group">
+          <a
+            href="#home"
+            onClick={() => setActiveNav('#home')}
+            className="flex items-center gap-3.5 group cursor-pointer"
+          >
             <div className="relative w-12 h-12 rounded-xl overflow-hidden border border-slate-200 bg-white shadow-xs group-hover:border-red-500 transition-all flex items-center justify-center p-0.5">
               <img
                 src="/logo.jpg"
