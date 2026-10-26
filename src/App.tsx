@@ -5,8 +5,6 @@ import { SchoolProgramsSection } from './components/SchoolProgramsSection';
 import { AboutSection } from './components/AboutSection';
 import { AIModuleContainer } from './components/AILab/AIModuleContainer';
 import { ProgramsSection } from './components/ProgramsSection';
-import { CoachesSection } from './components/CoachesSection';
-import { Testimonials } from './components/Testimonials';
 import { Footer } from './components/Footer';
 import { TrialBookingModal } from './components/TrialBookingModal';
 import { SchoolDemoModal } from './components/SchoolDemoModal';
@@ -81,12 +79,6 @@ export const App: React.FC = () => {
           onBookTrialForProgram={(prog) => handleOpenTrial(prog)}
           onNavigateToAILab={scrollToAILab}
         />
-
-        {/* Coaches & Pedigree */}
-        <CoachesSection />
-
-        {/* Reviews, School Partners & FAQs */}
-        <Testimonials />
       </main>
 
       {/* Clean Modern Footer */}
