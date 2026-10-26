@@ -54,7 +54,7 @@ export const PROGRAMS_DATA: Program[] = [
     schedule: '3 Sessions / Week • 60 Mins',
     duration: 'Quarterly / Half-Yearly',
     intensity: 'Medium',
-    image: 'https://images.unsplash.com/photo-1526676037777-05a232554f77?auto=format&fit=crop&w=800&q=80',
+    image: '/programs/football.jpg',
     popular: true
   },
   {

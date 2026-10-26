@@ -42,7 +42,7 @@ const KIDS_PROGRAMS: KidsProgram[] = [
     tagline: 'Ball control, passing, dribbling, movement & teamwork',
     whatChildrenLearn: 'Ball control, passing, dribbling, movement, teamwork and game awareness.',
     keySkills: ['Ball Control', 'Passing', 'Dribbling', 'Movement Agility', 'Teamwork', 'Game Awareness'],
-    image: 'https://images.unsplash.com/photo-1526676037777-05a232554f77?auto=format&fit=crop&w=800&q=80',
+    image: '/programs/football.jpg',
     popular: true
   },
   {
@@ -54,7 +54,7 @@ const KIDS_PROGRAMS: KidsProgram[] = [
     tagline: 'Running, jumping, agility, balance, speed & endurance',
     whatChildrenLearn: 'Running, jumping, agility, balance, coordination, speed and endurance.',
     keySkills: ['Sprint Mechanics', 'Long Jump', 'Agility Ladders', 'Dynamic Balance', 'Speed & Endurance', 'Cadence Rhythm'],
-    image: '/school-hero-1.jpg',
+    image: '/programs/athletics.jpg',
     popular: true
   },
   {
@@ -66,7 +66,7 @@ const KIDS_PROGRAMS: KidsProgram[] = [
     tagline: 'Dribbling, passing, shooting, footwork & team play',
     whatChildrenLearn: 'Dribbling, passing, shooting, footwork, coordination and team play.',
     keySkills: ['Dribbling', 'Passing Technique', 'Shooting Basics', 'Defensive Footwork', 'Hand-Eye Coordination', 'Team Play'],
-    image: 'https://images.unsplash.com/photo-1546519638-68e109498ffc?auto=format&fit=crop&w=800&q=80'
+    image: '/programs/basketball.jpg'
   },
   {
     id: 'cricket',
@@ -77,7 +77,7 @@ const KIDS_PROGRAMS: KidsProgram[] = [
     tagline: 'Batting basics, bowling, catching, throwing & fielding',
     whatChildrenLearn: 'Batting basics, bowling, catching, throwing, fielding and understanding the game.',
     keySkills: ['Grip & Stance', 'Batting Basics', 'Bowling Action', 'Catching & Throwing', 'Fielding Agility', 'Fair Play'],
-    image: 'https://images.unsplash.com/photo-1531415074868-036b1c57e329?auto=format&fit=crop&w=800&q=80'
+    image: '/programs/cricket.jpg'
   },
   {
     id: 'gymnastics',
@@ -89,7 +89,7 @@ const KIDS_PROGRAMS: KidsProgram[] = [
     tagline: 'Building strength, flexibility, balance & confidence through movement',
     whatChildrenLearn: 'Build strength, flexibility, balance and confidence through fun, age-appropriate movement activities.',
     keySkills: ['Balance & Body Awareness', 'Flexibility & Mobility', 'Strength & Coordination', 'Basic Jumps & Landings', 'Obstacle Courses'],
-    image: 'https://images.unsplash.com/photo-1517649763962-0c623266ddc0?auto=format&fit=crop&w=800&q=80'
+    image: '/programs/gymnastics.jpg'
   },
   {
     id: 'fun-fitness',
@@ -100,7 +100,7 @@ const KIDS_PROGRAMS: KidsProgram[] = [
     tagline: 'Age-appropriate games, mobility, balance & active play',
     whatChildrenLearn: 'Age-appropriate games, mobility, balance, basic fitness and active play.',
     keySkills: ['Movement Games', 'Joint Mobility', 'Dynamic Balance', 'Active Play', 'Postural Alignment', 'Confidence'],
-    image: 'https://images.unsplash.com/photo-1596495577886-d920f1fb7238?auto=format&fit=crop&w=800&q=80'
+    image: '/programs/fun-fitness.jpg'
   },
   {
     id: 'sports-skill',
@@ -111,7 +111,7 @@ const KIDS_PROGRAMS: KidsProgram[] = [
     tagline: 'Foundational movement skills that support confidence across sports',
     whatChildrenLearn: 'Foundational movement skills that support confidence across multiple sports.',
     keySkills: ['Hand-Eye Coordination', 'Multi-Sport Agility', 'Spatial Reasoning', 'Reaction Speed', 'Sportsmanship'],
-    image: '/school-hero-3.jpg'
+    image: '/programs/sports-skill.jpg'
   }
 ];
 
@@ -317,6 +317,9 @@ export const ProgramsSection: React.FC<ProgramsSectionProps> = ({
                   alt={prog.name}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                   loading="lazy"
+                  onError={(e) => {
+                    (e.target as HTMLImageElement).src = '/school-hero-1.jpg';
+                  }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950/75 via-slate-950/15 to-transparent" />
 

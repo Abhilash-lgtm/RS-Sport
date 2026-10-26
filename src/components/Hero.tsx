@@ -143,6 +143,9 @@ export const Hero: React.FC<HeroProps> = ({
                   src="/school-hero-1.jpg"
                   alt="RA Sports Kids Running Training"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                  onError={(e) => {
+                    (e.target as HTMLImageElement).src = '/school-hero-2.jpg';
+                  }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent" />
 

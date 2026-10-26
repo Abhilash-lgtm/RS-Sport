@@ -62,7 +62,7 @@ export const SchoolProgramsSection: React.FC<SchoolProgramsSectionProps> = ({ on
         'Healthy cardio stamina & posture correction',
         'Inclusion-first philosophy where every child shines'
       ],
-      image: 'https://images.unsplash.com/photo-1526676037777-05a232554f77?auto=format&fit=crop&w=800&q=80',
+      image: '/programs/fun-fitness.jpg',
       badge: 'All Age Groups'
     }
   ];
@@ -120,6 +120,9 @@ export const SchoolProgramsSection: React.FC<SchoolProgramsSectionProps> = ({ on
                 src={svc.image}
                 alt={svc.title}
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                onError={(e) => {
+                  (e.target as HTMLImageElement).src = '/school-hero-1.jpg';
+                }}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-slate-950/15 to-transparent" />
 

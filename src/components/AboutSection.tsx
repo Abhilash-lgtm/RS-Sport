@@ -119,6 +119,28 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenTrialModal }) 
               </h4>
             </div>
           </div>
+
+          {/* Authentic On-Ground Photo Card */}
+          <div className="relative rounded-3xl overflow-hidden border border-slate-200 shadow-sm h-48 sm:h-56 group">
+            <img
+              src="/school-hero-2.jpg"
+              alt="RA Sports Youth Training & Fundamental Movement Skills"
+              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+              loading="lazy"
+              onError={(e) => {
+                (e.target as HTMLImageElement).src = '/school-hero-1.jpg';
+              }}
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent" />
+            <div className="absolute bottom-4 left-5 right-5 text-white">
+              <span className="text-[10px] font-bold uppercase tracking-wider text-sky-300">
+                In-School PE & Grassroots Coaching
+              </span>
+              <h4 className="text-sm sm:text-base font-bold text-white">
+                Every child moving with speed, joy, and confidence.
+              </h4>
+            </div>
+          </div>
         </div>
 
         {/* Right Column: Key Offerings Grid */}
