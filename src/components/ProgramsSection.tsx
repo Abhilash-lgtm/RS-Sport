@@ -1,436 +1,160 @@
-import React, { useState } from 'react';
-import {
-  Trophy,
-  Sparkles,
-  ArrowRight,
-  CheckCircle2,
-  Calendar,
-  Clock,
-  Activity,
-  Heart,
-  Users,
-  Compass,
-  Star,
-  Zap,
-  Smile,
-  ShieldCheck,
-  ChevronRight
-} from 'lucide-react';
-
-interface KidsProgram {
-  id: string;
-  name: string;
-  category: 'Team Sports' | 'Track & Field' | 'Movement & Gymnastics';
-  ageRange: string;
-  badge: string;
-  badgeColor?: string;
-  tagline: string;
-  whatChildrenLearn: string;
-  keySkills: string[];
-  image: string;
-  popular?: boolean;
-  isNew?: boolean;
-}
-
-const KIDS_PROGRAMS: KidsProgram[] = [
-  {
-    id: 'football',
-    name: 'Football',
-    category: 'Team Sports',
-    ageRange: 'Ages 5 – 14',
-    badge: 'Popular Team Sport',
-    tagline: 'Ball control, passing, dribbling, movement & teamwork',
-    whatChildrenLearn: 'Ball control, passing, dribbling, movement, teamwork and game awareness.',
-    keySkills: ['Ball Control', 'Passing', 'Dribbling', 'Movement Agility', 'Teamwork', 'Game Awareness'],
-    image: '/programs/football.jpg',
-    popular: true
-  },
-  {
-    id: 'athletics',
-    name: 'Athletics',
-    category: 'Track & Field',
-    ageRange: 'Ages 4 – 17',
-    badge: 'Core Foundation',
-    tagline: 'Running, jumping, agility, balance, speed & endurance',
-    whatChildrenLearn: 'Running, jumping, agility, balance, coordination, speed and endurance.',
-    keySkills: ['Sprint Mechanics', 'Long Jump', 'Agility Ladders', 'Dynamic Balance', 'Speed & Endurance', 'Cadence Rhythm'],
-    image: '/programs/athletics.jpg',
-    popular: true
-  },
-  {
-    id: 'basketball',
-    name: 'Basketball',
-    category: 'Team Sports',
-    ageRange: 'Ages 6 – 16',
-    badge: 'Fast-Paced Action',
-    tagline: 'Dribbling, passing, shooting, footwork & team play',
-    whatChildrenLearn: 'Dribbling, passing, shooting, footwork, coordination and team play.',
-    keySkills: ['Dribbling', 'Passing Technique', 'Shooting Basics', 'Defensive Footwork', 'Hand-Eye Coordination', 'Team Play'],
-    image: '/programs/basketball.jpg'
-  },
-  {
-    id: 'cricket',
-    name: 'Cricket',
-    category: 'Team Sports',
-    ageRange: 'Ages 5 – 15',
-    badge: 'Dedicated Program',
-    tagline: 'Batting basics, bowling, catching, throwing & fielding',
-    whatChildrenLearn: 'Batting basics, bowling, catching, throwing, fielding and understanding the game.',
-    keySkills: ['Grip & Stance', 'Batting Basics', 'Bowling Action', 'Catching & Throwing', 'Fielding Agility', 'Fair Play'],
-    image: '/programs/cricket.jpg'
-  },
-  {
-    id: 'gymnastics',
-    name: 'Gymnastics',
-    category: 'Movement & Gymnastics',
-    ageRange: 'Ages 3 – 10',
-    badge: 'NEW PROGRAM',
-    isNew: true,
-    tagline: 'Building strength, flexibility, balance & confidence through movement',
-    whatChildrenLearn: 'Build strength, flexibility, balance and confidence through fun, age-appropriate movement activities.',
-    keySkills: ['Balance & Body Awareness', 'Flexibility & Mobility', 'Strength & Coordination', 'Basic Jumps & Landings', 'Obstacle Courses'],
-    image: '/programs/gymnastics.jpg'
-  },
-  {
-    id: 'fun-fitness',
-    name: 'Fun Fitness & Movement',
-    category: 'Movement & Gymnastics',
-    ageRange: 'Ages 3 – 8',
-    badge: 'Early Years Favourite',
-    tagline: 'Age-appropriate games, mobility, balance & active play',
-    whatChildrenLearn: 'Age-appropriate games, mobility, balance, basic fitness and active play.',
-    keySkills: ['Movement Games', 'Joint Mobility', 'Dynamic Balance', 'Active Play', 'Postural Alignment', 'Confidence'],
-    image: '/programs/fun-fitness.jpg'
-  },
-  {
-    id: 'sports-skill',
-    name: 'Sports Skill Development',
-    category: 'Movement & Gymnastics',
-    ageRange: 'Ages 4 – 12',
-    badge: 'Multi-Sport Literacy',
-    tagline: 'Foundational movement skills that support confidence across sports',
-    whatChildrenLearn: 'Foundational movement skills that support confidence across multiple sports.',
-    keySkills: ['Hand-Eye Coordination', 'Multi-Sport Agility', 'Spatial Reasoning', 'Reaction Speed', 'Sportsmanship'],
-    image: '/programs/sports-skill.jpg'
-  }
-];
-
-const AGE_GROUPS = [
-  {
-    range: '3–5 years',
-    title: 'Early Explorers (Preschool)',
-    focus: 'Movement, balance, coordination, fun games and confidence',
-    highlights: ['Locomotor literacy', 'Body awareness & balance', 'Joyful group play', 'Listening & spatial safety']
-  },
-  {
-    range: '5–7 years',
-    title: 'Junior Sports Foundation',
-    focus: 'Basic sports skills, teamwork and simple challenges',
-    highlights: ['Ball handling & throwing', 'Agility ladder basics', 'Cooperative team tasks', 'Rule comprehension']
-  },
-  {
-    range: '7–10 years',
-    title: 'Multi-Sport Development',
-    focus: 'Sport-specific skills, fitness, technique and game understanding',
-    highlights: ['Sprint mechanics & cuts', 'Sport-specific fundamentals', 'Cardio endurance', 'Strategic gameplay']
-  },
-  {
-    range: '10+ years',
-    title: 'Youth Athletics & Performance',
-    focus: 'Skill progression, performance habits and advanced fundamentals',
-    highlights: ['Positional mastery', 'Speed-power conditioning', 'Neuromuscular stability', 'Leadership & mindset']
-  }
-];
-
-const SESSION_FLOW = [
-  { step: '1', title: 'Welcome & Warm-Up', desc: 'Joint mobility, pulse raiser & greeting ritual to build positive readiness.' },
-  { step: '2', title: 'Movement Game', desc: 'Dynamic play-based game reinforcing coordination, balance, and spatial agility.' },
-  { step: '3', title: 'Skill Activity', desc: 'Focused sport technique practice (kicking, batting, jumping, or dribbling).' },
-  { step: '4', title: 'Team Challenge', desc: 'Cooperative mini-game or friendly relay applying the newly learned skill.' },
-  { step: '5', title: 'Cool-Down & Positive Feedback', desc: 'Stretching, breathing, high-fives, and recognizing effort & sportsmanship.' }
-];
+import React from 'react';
 
 interface ProgramsSectionProps {
-  onBookTrialForProgram: (programTitle: string) => void;
-  onNavigateToAILab: () => void;
+  onSelectProgram?: (sportName: string) => void;
 }
 
-export const ProgramsSection: React.FC<ProgramsSectionProps> = ({
-  onBookTrialForProgram,
-  onNavigateToAILab
-}) => {
-  const [activeFilter, setActiveFilter] = useState<string>('All');
-  const [selectedGymnastics, setSelectedGymnastics] = useState(false);
+interface ProgramItem {
+  name: string;
+  image: string;
+  badgeBg: 'crimson' | 'navy';
+  subtext: string;
+  icon: React.ReactNode;
+}
 
-  const filterTabs = [
-    'All',
-    'Team Sports',
-    'Track & Field',
-    'Movement & Gymnastics',
-    'Age Groups & Structure'
+export const ProgramsSection: React.FC<ProgramsSectionProps> = ({ onSelectProgram }) => {
+  const programs: ProgramItem[] = [
+    {
+      name: 'Athletics',
+      image: '/custom/program_athletics_hd.jpg',
+      badgeBg: 'crimson',
+      subtext: 'Speed • Stamina • Confidence',
+      icon: (
+        <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
+          <circle cx="13.5" cy="4" r="2.2" />
+          <path d="M19 8.5l-4.2 1.3-1.8-2.6C12.6 6.5 11.7 6 10.7 6H9c-.6 0-1 .4-1 1s.4 1 1 1h1.4l1.3 1.9-2.7 2.1-3.2-.8c-.5-.1-1.1.2-1.2.7-.1.5.2 1.1.7 1.2l3.8 1c.4.1.8 0 1.2-.2l3-2.3 1 2.3-2.5 3.3c-.3.4-.3 1 0 1.4.2.3.6.4 1 .4.2 0 .4 0 .5-.2l3-4c.3-.4.3-.9.1-1.4l-1.3-3 2.5-.8 1.8 2.4c.3.4.9.5 1.3.2.4-.3.5-.9.2-1.3L19 8.5z" />
+        </svg>
+      ),
+    },
+    {
+      name: 'Badminton',
+      image: '/custom/program_badminton_hd.jpg',
+      badgeBg: 'navy',
+      subtext: 'Agility • Focus • Fun',
+      icon: (
+        <svg className="w-4 h-4 stroke-current fill-none stroke-[2]" viewBox="0 0 24 24">
+          <circle cx="15.5" cy="8.5" r="5.5" />
+          <line x1="11.5" y1="12.5" x2="4" y2="20" />
+          <line x1="3" y1="19" x2="5" y2="21" />
+          <path d="M13 6l5 5M12 9l3 3M15 4l3 3" />
+        </svg>
+      ),
+    },
+    {
+      name: 'Yoga',
+      image: '/custom/program_yoga_hd.jpg',
+      badgeBg: 'crimson',
+      subtext: 'Balance • Calm • Flexibility',
+      icon: (
+        <svg className="w-4 h-4 stroke-current fill-none stroke-[2]" viewBox="0 0 24 24">
+          <circle cx="12" cy="6" r="2.5" />
+          <path d="M6 20c0-3 3-5 6-5s6 2 6 5" />
+          <path d="M12 11v4" />
+          <path d="M7 14l5-3 5 3" />
+        </svg>
+      ),
+    },
+    {
+      name: 'Basketball',
+      image: '/custom/program_basketball_hd.jpg',
+      badgeBg: 'navy',
+      subtext: 'Coordination • Teamwork • Skills',
+      icon: (
+        <svg className="w-4 h-4 stroke-current fill-none stroke-[2]" viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="9" />
+          <line x1="3" y1="12" x2="21" y2="12" />
+          <line x1="12" y1="3" x2="12" y2="21" />
+          <path d="M5.6 5.6c4 3 4 9.8 0 12.8M18.4 5.6c-4 3-4 9.8 0 12.8" />
+        </svg>
+      ),
+    },
+    {
+      name: 'Football',
+      image: '/custom/program_football_hd.jpg',
+      badgeBg: 'crimson',
+      subtext: 'Discipline • Fitness • Team Spirit',
+      icon: (
+        <svg className="w-4 h-4 stroke-current fill-none stroke-[2]" viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="9" />
+          <polygon points="12,8 14.5,10 13.5,13 10.5,13 9.5,10" fill="currentColor" />
+          <line x1="12" y1="8" x2="12" y2="3" />
+          <line x1="14.5" y1="10" x2="19" y2="8.5" />
+          <line x1="13.5" y1="13" x2="17" y2="17" />
+          <line x1="10.5" y1="13" x2="7" y2="17" />
+          <line x1="9.5" y1="10" x2="5" y2="8.5" />
+        </svg>
+      ),
+    },
+    {
+      name: 'Gymnastics',
+      image: '/custom/program_gymnastics_hd.jpg',
+      badgeBg: 'navy',
+      subtext: 'Strength • Flexibility • Balance',
+      icon: (
+        <svg className="w-4 h-4 stroke-current fill-none stroke-[2]" viewBox="0 0 24 24">
+          <circle cx="12" cy="5" r="2" />
+          <path d="M4 11l4 2 4-3 4 3 4-2" />
+          <path d="M12 10v6l-4 4M12 16l4 4" />
+        </svg>
+      ),
+    },
   ];
 
-  const filteredPrograms = activeFilter === 'All' || activeFilter === 'Age Groups & Structure'
-    ? KIDS_PROGRAMS
-    : KIDS_PROGRAMS.filter(p => p.category === activeFilter);
-
   return (
-    <section id="programs" className="py-14 sm:py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto scroll-mt-20">
-      {/* Section Header */}
-      <div className="text-center max-w-3xl mx-auto mb-12">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200 text-blue-700 text-xs font-bold uppercase tracking-wider mb-4 shadow-2xs">
-          <Trophy className="w-3.5 h-3.5 text-blue-600" />
-          <span>Kids Sports Programs</span>
-        </div>
-
-        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-tight">
-          Our Sports Programs for{' '}
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-600 to-sky-500">
-            Growing Champions
-          </span>
-        </h2>
-
-        <p className="mt-4 text-base sm:text-lg text-slate-600 leading-relaxed font-normal">
-          Scientifically designed athletic development programs for children ages 3 to 17. Every session is planned around physical growth milestones to build speed, coordination, healthy habits, and lifelong confidence.
-        </p>
-
-        {/* Category Filter Pills */}
-        <div className="mt-6 sm:mt-8 flex flex-wrap items-center justify-center gap-1.5 sm:gap-2">
-          {filterTabs.map((tab) => (
-            <button
-              key={tab}
-              onClick={() => setActiveFilter(tab)}
-              className={`px-3 py-2 sm:px-4 sm:py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer ${
-                activeFilter === tab
-                  ? 'bg-blue-600 text-white shadow-sm shadow-blue-600/20 scale-[1.03]'
-                  : 'bg-white text-slate-700 hover:text-slate-950 border border-slate-200 hover:border-slate-300 shadow-2xs'
-              }`}
-            >
-              {tab === 'All' ? 'All 7 Sports Programs' : tab}
-            </button>
-          ))}
-        </div>
-      </div>
-
-      {/* When "Age Groups & Structure" tab is clicked, show Age Groups & 5-Step Flow first */}
-      {activeFilter === 'Age Groups & Structure' && (
-        <div className="mb-16 space-y-12 animate-fadeIn">
-          {/* Age Groups Table / Cards */}
-          <div className="bg-white rounded-3xl border border-slate-200 p-6 sm:p-10 shadow-sm">
-            <div className="mb-6">
-              <span className="text-xs font-black uppercase text-blue-700 tracking-wider">
-                Age Groups & Developmental Focus
-              </span>
-              <h3 className="text-2xl font-black text-slate-900 mt-1">
-                Progression Tailored to Your Child's Stage
-              </h3>
-              <p className="text-xs sm:text-sm text-slate-500 mt-1">
-                Structured LTAD (Long-Term Athlete Development) milestones ensure age-appropriate motor literacy, neuromuscular coordination, and injury-free athletic progress.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-              {AGE_GROUPS.map((ag, i) => (
-                <div
-                  key={i}
-                  className="p-5 rounded-2xl bg-slate-50 border border-slate-200/90 hover:border-blue-300 transition-all flex flex-col justify-between"
-                >
-                  <div>
-                    <span className="inline-block bg-blue-600 text-white text-xs font-black px-2.5 py-0.5 rounded-lg mb-2">
-                      {ag.range}
-                    </span>
-                    <h4 className="text-sm font-bold text-slate-900 mb-1.5">{ag.title}</h4>
-                    <p className="text-xs text-slate-700 font-semibold mb-3 leading-snug">
-                      {ag.focus}
-                    </p>
-                  </div>
-
-                  <div className="pt-3 border-t border-slate-200/60 space-y-1">
-                    {ag.highlights.map((h, hIdx) => (
-                      <div key={hIdx} className="flex items-center gap-1.5 text-[11px] text-slate-600">
-                        <CheckCircle2 className="w-3 h-3 text-emerald-600 shrink-0" />
-                        <span>{h}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              ))}
-            </div>
+    <section id="programs" className="py-12 sm:py-16 bg-white scroll-mt-24">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        {/* Section Header */}
+        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12">
+          <div className="text-[#96162e] font-bold tracking-widest text-xs sm:text-sm uppercase mb-1">
+            OUR PROGRAMS
           </div>
-
-          {/* 5-Step Session Flow */}
-          <div className="bg-white rounded-3xl border border-slate-200 p-6 sm:p-10 shadow-sm">
-            <div className="mb-6">
-              <span className="text-xs font-black uppercase text-blue-700 tracking-wider">
-                Session Structure
-              </span>
-              <h3 className="text-2xl font-black text-slate-900 mt-1">
-                Our Proven 5-Step Training Methodology
-              </h3>
-              <p className="text-xs sm:text-sm text-slate-500 mt-1">
-                Every session is structured to ensure maximum engagement, active fun, progressive skill building, and positive coaching feedback.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-5 gap-3">
-              {SESSION_FLOW.map((s) => (
-                <div
-                  key={s.step}
-                  className="p-4 rounded-2xl bg-slate-50 border border-slate-200 flex flex-col justify-between"
-                >
-                  <div>
-                    <span className="w-8 h-8 rounded-xl bg-blue-600 text-white font-black text-xs flex items-center justify-center mb-3 shadow-2xs">
-                      {s.step}
-                    </span>
-                    <h4 className="text-xs sm:text-sm font-bold text-slate-900 mb-1">
-                      {s.title}
-                    </h4>
-                    <p className="text-[11px] text-slate-600 leading-relaxed">
-                      {s.desc}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* Program Visual Cards Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-        {filteredPrograms.map((prog) => {
-          const isGymnastics = prog.id === 'gymnastics';
-
-          return (
-            <div
-              key={prog.id}
-              className={`group bg-white rounded-3xl border transition-all duration-300 hover:shadow-xl hover:-translate-y-1 flex flex-col overflow-hidden relative ${
-                isGymnastics
-                  ? 'border-purple-200 shadow-purple-500/5'
-                  : 'border-slate-200/90 shadow-sm'
-              }`}
-            >
-              {/* Card Image Header */}
-              <div className="relative h-56 w-full overflow-hidden bg-slate-100">
-                <img
-                  src={prog.image}
-                  alt={prog.name}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                  loading="lazy"
-                  onError={(e) => {
-                    (e.target as HTMLImageElement).src = '/school-hero-1.jpg';
-                  }}
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/75 via-slate-950/15 to-transparent" />
-
-                {/* Badges Top */}
-                <div className="absolute top-3.5 left-3.5 flex items-center gap-1.5">
-                  <span className={`inline-flex items-center gap-1 px-3 py-1 rounded-full text-[11px] font-extrabold uppercase tracking-wider backdrop-blur-md shadow-xs ${
-                    isGymnastics
-                      ? 'bg-purple-600 text-white'
-                      : 'bg-white/95 text-slate-900 border border-slate-200'
-                  }`}>
-                    {isGymnastics && <Sparkles className="w-3 h-3 text-amber-300" />}
-                    {prog.badge}
-                  </span>
-                </div>
-
-                <div className="absolute top-3.5 right-3.5">
-                  <span className="bg-slate-900/85 backdrop-blur-md text-white text-[10px] font-bold px-2.5 py-1 rounded-lg">
-                    {prog.ageRange}
-                  </span>
-                </div>
-
-                {/* Title & Tagline in Image */}
-                <div className="absolute bottom-3.5 left-4 right-4 text-white">
-                  <h3 className="text-2xl font-black tracking-tight">{prog.name}</h3>
-                  <p className="text-xs text-slate-200 font-medium line-clamp-1 mt-0.5">
-                    {prog.tagline}
-                  </p>
-                </div>
-              </div>
-
-              {/* Card Body */}
-              <div className="p-6 flex-1 flex flex-col justify-between space-y-5">
-                <div>
-                  {/* What Children Learn */}
-                  <div className="mb-4">
-                    <span className="text-[11px] uppercase font-bold text-slate-400 tracking-wider block mb-1">
-                      What Children Learn
-                    </span>
-                    <p className="text-sm font-semibold text-slate-800 leading-snug">
-                      {prog.whatChildrenLearn}
-                    </p>
-                  </div>
-
-                  {/* Key Skills Tags */}
-                  <div>
-                    <span className="text-[10px] uppercase font-bold text-slate-400 tracking-wider block mb-2">
-                      Key Skills Covered
-                    </span>
-                    <div className="flex flex-wrap gap-1.5">
-                      {prog.keySkills.map((skill, idx) => (
-                        <span
-                          key={idx}
-                          className="inline-flex items-center gap-1 text-[11px] font-semibold bg-slate-50 border border-slate-200 text-slate-700 px-2.5 py-1 rounded-lg"
-                        >
-                          <CheckCircle2 className="w-3 h-3 text-emerald-600 shrink-0" />
-                          {skill}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-
-                {/* Card Action CTAs */}
-                <div className="pt-3 border-t border-slate-100 flex items-center gap-2">
-                  <button
-                    onClick={() => onBookTrialForProgram(prog.name)}
-                    className={`flex-1 py-3 px-4 rounded-xl font-bold text-xs sm:text-sm flex items-center justify-center gap-2 transition-all cursor-pointer ${
-                      isGymnastics
-                        ? 'bg-purple-600 hover:bg-purple-700 text-white shadow-sm shadow-purple-600/20'
-                        : 'bg-blue-600 hover:bg-blue-700 text-white shadow-sm shadow-blue-600/20'
-                    }`}
-                  >
-                    <span>{isGymnastics ? 'Discover Gymnastics →' : `Enrol in ${prog.name}`}</span>
-                    <ArrowRight className="w-4 h-4" />
-                  </button>
-
-                  <button
-                    onClick={onNavigateToAILab}
-                    className="p-3 rounded-xl bg-slate-50 hover:bg-slate-100 text-slate-700 border border-slate-200 transition-colors cursor-pointer"
-                    title="Check AI Biometric Readiness"
-                  >
-                    <Sparkles className="w-4 h-4 text-blue-600" />
-                  </button>
-                </div>
-              </div>
-            </div>
-          );
-        })}
-      </div>
-
-      {/* Bottom Multi-Sport Diagnostics Callout */}
-      <div className="mt-14 bg-gradient-to-br from-blue-50/40 via-white to-slate-50/60 rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm flex flex-col md:flex-row items-center justify-between gap-6">
-        <div className="space-y-1.5 text-center md:text-left">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 text-xs font-bold text-blue-700 uppercase tracking-wider border border-blue-200">
-            <Star className="w-3.5 h-3.5 fill-blue-600 text-blue-600" />
-            <span>Football • Athletics • Basketball • Cricket • Gymnastics</span>
-          </div>
-          <h3 className="text-xl sm:text-2xl font-black text-slate-900">
-            Unsure which sport matches your child best?
-          </h3>
-          <p className="text-xs sm:text-sm text-slate-600 max-w-xl font-normal">
-            Book a complimentary 60-minute diagnostic session. Our certified NIS and pediatric coaches assess natural movement literacy, coordination, and sport preferences!
+          <h2 className="text-3xl sm:text-4xl lg:text-[40px] font-black tracking-tight text-[#0f264a] leading-tight">
+            Sports for Every Child
+          </h2>
+          <p className="text-slate-600 text-sm sm:text-base font-normal mt-2 max-w-xl mx-auto">
+            Fun, safe and structured sports programs for preschool and school children.
           </p>
         </div>
 
-        <button
-          onClick={() => onBookTrialForProgram('Multi-Sport Diagnostic')}
-          className="bg-blue-600 hover:bg-blue-700 text-white font-bold text-sm py-3.5 px-7 rounded-2xl shadow-sm shadow-blue-600/20 transition-all hover:scale-105 cursor-pointer whitespace-nowrap"
-        >
-          Book Free Diagnostic Trial →
-        </button>
+        {/* 6 Programs Cards Grid */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3.5 sm:gap-4 lg:gap-4.5">
+          {programs.map((prog) => {
+            const isCrimson = prog.badgeBg === 'crimson';
+            return (
+              <div
+                key={prog.name}
+                onClick={() => onSelectProgram && onSelectProgram(prog.name)}
+                className="group flex flex-col items-center bg-white rounded-2xl overflow-hidden border border-slate-100 hover:border-slate-200 shadow-sm hover:shadow-md transition-all duration-200 cursor-pointer text-center p-2 pb-3.5"
+              >
+                {/* Photo container */}
+                <div className="w-full aspect-[4/3] rounded-xl overflow-hidden bg-slate-100 mb-2.5">
+                  <img
+                    src={prog.image}
+                    alt={prog.name}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+
+                {/* Badge Pill */}
+                <div
+                  className={`w-full py-1.5 px-3 rounded-full flex items-center justify-center gap-1.5 text-white font-bold text-xs sm:text-[13px] shadow-2xs ${
+                    isCrimson ? 'bg-[#96162e]' : 'bg-[#0f264a]'
+                  }`}
+                >
+                  <span className="flex-shrink-0">{prog.icon}</span>
+                  <span className="truncate">{prog.name}</span>
+                </div>
+
+                {/* Subtext with bullets */}
+                <p className="text-[11px] sm:text-[11.5px] font-medium text-slate-500 mt-2 leading-tight tracking-tight px-1">
+                  {prog.subtext}
+                </p>
+              </div>
+            );
+          })}
+        </div>
+
       </div>
     </section>
   );

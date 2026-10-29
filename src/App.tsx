@@ -1,100 +1,88 @@
 import React, { useState } from 'react';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
-import { AboutSection } from './components/AboutSection';
 import { ProgramsSection } from './components/ProgramsSection';
-import { AIModuleContainer } from './components/AILab/AIModuleContainer';
+import { AboutSection } from './components/AboutSection';
+import { WhyChooseSection } from './components/WhyChooseSection';
+import { GallerySection } from './components/GallerySection';
+import { PreFooter } from './components/PreFooter';
 import { Footer } from './components/Footer';
-import { TrialBookingModal } from './components/TrialBookingModal';
-import { SchoolDemoModal } from './components/SchoolDemoModal';
-import { SocialFloatingBar } from './components/SocialFloatingBar';
+import { ContactModal } from './components/ContactModal';
+import { GalleryModal } from './components/GalleryModal';
 
 export const App: React.FC = () => {
-  const [trialModalOpen, setTrialModalOpen] = useState(false);
-  const [demoModalOpen, setDemoModalOpen] = useState(false);
-  const [selectedProgramForTrial, setSelectedProgramForTrial] = useState<string | undefined>();
-  const [prefilledAthlete, setPrefilledAthlete] = useState<
-    { name: string; age: number; sport: string } | undefined
-  >();
+  const [contactModalOpen, setContactModalOpen] = useState(false);
+  const [selectedProgram, setSelectedProgram] = useState<string | undefined>();
+  const [galleryModalOpen, setGalleryModalOpen] = useState(false);
+  const [galleryPhotoIndex, setGalleryPhotoIndex] = useState(0);
 
-  const handleOpenTrial = (programName?: string) => {
-    setSelectedProgramForTrial(programName);
-    setPrefilledAthlete(undefined);
-    setTrialModalOpen(true);
+  const handleOpenContact = (programName?: string) => {
+    setSelectedProgram(programName);
+    setContactModalOpen(true);
   };
 
-  const handleBookTrialWithAthlete = (name: string, age: number, sport: string) => {
-    setPrefilledAthlete({ name, age, sport });
-    setSelectedProgramForTrial(sport);
-    setTrialModalOpen(true);
-  };
-
-  const scrollToAILab = () => {
-    const el = document.getElementById('ai-lab');
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
-    }
+  const handleOpenPhotoIndex = (index: number) => {
+    setGalleryPhotoIndex(index);
+    setGalleryModalOpen(true);
   };
 
   const scrollToPrograms = () => {
     const el = document.getElementById('programs');
     if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
+      const headerOffset = 85;
+      const elementPosition = el.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth',
+      });
     }
   };
 
   return (
-    <div className="min-h-screen bg-white text-slate-900 selection:bg-blue-600 selection:text-white flex flex-col font-sans relative">
-      {/* Top Sticky Navbar with dynamic active color-change navigation */}
-      <Navbar
-        onOpenTrialModal={() => handleOpenTrial()}
-        onNavigateToAILab={scrollToAILab}
-        onOpenDemoModal={() => setDemoModalOpen(true)}
-      />
+    <div className="min-h-screen bg-white text-[#0f264a] flex flex-col font-sans selection:bg-[#96162e] selection:text-white">
+      {/* 1. Navbar */}
+      <Navbar onOpenContact={() => handleOpenContact()} />
 
-      {/* Main Content Sections */}
       <main className="flex-1">
-        {/* 1. Home / Hero Section */}
-        <Hero
-          onOpenTrialModal={() => handleOpenTrial()}
-          onNavigateToAILab={scrollToAILab}
+        {/* 2. Hero Section: Healthy Kids, Stronger Tomorrow */}
+        <Hero onExplorePrograms={scrollToPrograms} />
+
+        {/* 3. OUR PROGRAMS: Sports for Every Child */}
+        <ProgramsSection onSelectProgram={(prog) => handleOpenContact(prog)} />
+
+        {/* 4. ABOUT RA SPORTS: Nurturing Young Athletes */}
+        <AboutSection />
+
+        {/* 5. WHY CHOOSE RA SPORTS: More Than Just Sports */}
+        <WhyChooseSection />
+
+        {/* 6. Our Gallery Strip */}
+        <GallerySection
+          onOpenGalleryModal={() => setGalleryModalOpen(true)}
+          onOpenPhotoByIndex={handleOpenPhotoIndex}
         />
 
-        {/* 2. About Us Section */}
-        <AboutSection onOpenTrialModal={() => handleOpenTrial()} />
-
-        {/* 3. Core Kids Athletic Programs */}
-        <ProgramsSection
-          onBookTrialForProgram={(prog) => handleOpenTrial(prog)}
-          onNavigateToAILab={scrollToAILab}
-        />
-
-        {/* 4. AI Athletic Lab */}
-        <AIModuleContainer
-          onBookTrialWithAthlete={handleBookTrialWithAthlete}
-          onOpenTrialModal={() => handleOpenTrial()}
-          onNavigateToSchedule={scrollToPrograms}
-        />
+        {/* 7. Let's Get Started! Pre-Footer Banner */}
+        <PreFooter onOpenContact={() => handleOpenContact()} />
       </main>
 
-      {/* Clean Modern Footer */}
-      <Footer />
+      {/* 8. Footer */}
+      <Footer onOpenContact={() => handleOpenContact()} />
 
-      {/* Floating WhatsApp and Contact Speed-Dial */}
-      <SocialFloatingBar />
-
-      {/* Free Trial Registration Modal */}
-      <TrialBookingModal
-        isOpen={trialModalOpen}
-        onClose={() => setTrialModalOpen(false)}
-        prefilledProgram={selectedProgramForTrial}
-        prefilledAthlete={prefilledAthlete}
+      {/* Interactive Contact / Enrollment Modal */}
+      <ContactModal
+        isOpen={contactModalOpen}
+        onClose={() => setContactModalOpen(false)}
+        defaultProgram={selectedProgram}
       />
 
-      {/* School Demo Session Request Modal */}
-      <SchoolDemoModal
-        isOpen={demoModalOpen}
-        onClose={() => setDemoModalOpen(false)}
+      {/* Interactive Gallery Lightbox Modal */}
+      <GalleryModal
+        isOpen={galleryModalOpen}
+        onClose={() => setGalleryModalOpen(false)}
+        currentIndex={galleryPhotoIndex}
+        setCurrentIndex={setGalleryPhotoIndex}
       />
     </div>
   );

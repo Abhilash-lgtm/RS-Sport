@@ -1,188 +1,151 @@
 import React from 'react';
-import { Phone, Mail, MapPin, Trophy, ShieldCheck, ArrowUp } from 'lucide-react';
-import { CONTACT_INFO } from '../data/sportsData';
-import { YouTubeIcon, InstagramIcon, FacebookIcon, WhatsAppIcon } from './SocialIcons';
 
-export const Footer: React.FC = () => {
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+interface FooterProps {
+  onOpenContact: () => void;
+}
+
+const FOOTER_LINKS = [
+  { label: 'Home', href: '#home', id: 'home' },
+  { label: 'Programs', href: '#programs', id: 'programs' },
+  { label: 'About Us', href: '#about', id: 'about' },
+  { label: 'Why RA Sports', href: '#why-ra-sports', id: 'why-ra-sports' },
+  { label: 'Gallery', href: '#gallery', id: 'gallery' },
+  { label: 'Contact', href: '#contact', id: 'contact' },
+];
+
+export const Footer: React.FC<FooterProps> = ({ onOpenContact }) => {
+  const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string, id: string) => {
+    e.preventDefault();
+
+    if (id === 'contact') {
+      const contactEl = document.getElementById('contact');
+      if (contactEl) {
+        const headerOffset = 90;
+        const elementPosition = contactEl.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth',
+        });
+      } else {
+        onOpenContact();
+      }
+      return;
+    }
+
+    if (id === 'home') {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth',
+      });
+      return;
+    }
+
+    const element = document.getElementById(id);
+    if (element) {
+      const headerOffset = 90;
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth',
+      });
+    }
   };
 
   return (
-    <footer className="bg-white text-slate-600 border-t border-slate-200 pt-16 pb-12">
+    <footer className="bg-[#06152a] text-white pt-10 pb-8 border-t border-slate-800/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-slate-200">
-          {/* Col 1 & 2: Brand Info */}
-          <div className="lg:col-span-2 space-y-4">
-            <div className="flex items-center gap-3">
-              <div className="w-12 h-12 rounded-xl bg-white p-0.5 border border-slate-200 overflow-hidden shadow-xs">
-                <img
-                  src="/logo.jpg"
-                  alt="RA Sports Logo"
-                  className="w-full h-full object-contain"
-                  onError={(e) => {
-                    (e.target as HTMLElement).style.display = 'none';
-                  }}
-                />
-              </div>
-              <div>
-                <span className="text-xl font-black text-slate-900 tracking-tight">RA SPORTS</span>
-                <span className="block text-[11px] font-bold text-blue-600 tracking-wider uppercase">
-                  Raising Athletics Sports
-                </span>
-              </div>
-            </div>
-
-            <p className="text-xs text-slate-500 leading-relaxed max-w-sm font-medium">
-              <strong className="text-slate-800">STRONGER KIDS • HEALTHIER FUTURES.</strong> Premier youth athletics academy and in-school physical education organization in Hyderabad. Inspired by modern youth multi-sport models and backed by Olympic LTAD science and real-time AI biomechanics.
-            </p>
-
-            <div className="pt-2 flex flex-wrap items-center gap-3 text-xs text-slate-600 font-medium">
-              <span className="flex items-center gap-1">
-                <ShieldCheck className="w-4 h-4 text-emerald-600" />
-                POSH & POCSO Certified
-              </span>
-              <span>•</span>
-              <span className="flex items-center gap-1">
-                <Trophy className="w-4 h-4 text-amber-500" />
-                World Athletics & NIS Coaches
-              </span>
-            </div>
-
-            {/* Official Social Media Channels */}
-            <div className="pt-3">
-              <span className="text-[11px] uppercase font-bold text-slate-400 block mb-2">
-                Follow Official Channels:
-              </span>
-              <div className="flex items-center gap-2">
-                <a
-                  href={CONTACT_INFO.youtube}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="p-2.5 rounded-xl bg-slate-50 hover:bg-red-50 text-slate-600 hover:text-red-600 border border-slate-200 hover:border-red-200 transition-colors flex items-center gap-1.5 text-xs font-bold shadow-2xs"
-                  title="Subscribe on YouTube"
-                >
-                  <YouTubeIcon className="w-4 h-4 text-red-600" />
-                  <span>YouTube</span>
-                </a>
-
-                <a
-                  href={CONTACT_INFO.instagram}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="p-2.5 rounded-xl bg-slate-50 hover:bg-rose-50 text-slate-600 hover:text-rose-600 border border-slate-200 hover:border-rose-200 transition-colors flex items-center gap-1.5 text-xs font-bold shadow-2xs"
-                  title="Follow on Instagram"
-                >
-                  <InstagramIcon className="w-4 h-4 text-rose-600" />
-                  <span>Instagram</span>
-                </a>
-
-                <a
-                  href={CONTACT_INFO.facebook}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="p-2.5 rounded-xl bg-slate-50 hover:bg-blue-50 text-slate-600 hover:text-blue-600 border border-slate-200 hover:border-blue-200 transition-colors flex items-center gap-1.5 text-xs font-bold shadow-2xs"
-                  title="Follow on Facebook"
-                >
-                  <FacebookIcon className="w-4 h-4 text-blue-600" />
-                  <span>Facebook</span>
-                </a>
-              </div>
-            </div>
-          </div>
-
-          {/* Col 3: Programs */}
-          <div className="space-y-3">
-            <h4 className="text-slate-900 text-xs font-bold uppercase tracking-wider">Athletic Programs</h4>
-            <ul className="space-y-2 text-xs font-medium">
-              <li><a href="#programs" className="hover:text-blue-600 transition-colors">Little Cubs (Ages 4-6)</a></li>
-              <li><a href="#programs" className="hover:text-blue-600 transition-colors">Junior Explorers (Ages 7-10)</a></li>
-              <li><a href="#programs" className="hover:text-blue-600 transition-colors">Youth Academy Pro (Ages 11-14)</a></li>
-              <li><a href="#programs" className="hover:text-blue-600 transition-colors">Elite Sprint Squad (Ages 15-18)</a></li>
-              <li><a href="#programs" className="hover:text-blue-600 transition-colors">In-School PE (The Fit Cubs)</a></li>
-            </ul>
-          </div>
-
-          {/* Col 4: AI & Technology */}
-          <div className="space-y-3">
-            <h4 className="text-slate-900 text-xs font-bold uppercase tracking-wider">AI Sports Lab</h4>
-            <ul className="space-y-2 text-xs font-medium">
-              <li><a href="#ai-lab" className="hover:text-blue-600 transition-colors">AI Athletic Assessment</a></li>
-              <li><a href="#ai-lab" className="hover:text-blue-600 transition-colors">Kinematic Pose Tracking</a></li>
-              <li><a href="#ai-lab" className="hover:text-blue-600 transition-colors">Stride & Cadence Vision</a></li>
-              <li><a href="#ai-lab" className="hover:text-blue-600 transition-colors">Coach RA 24/7 AI Chatbot</a></li>
-              <li><a href="#about" className="hover:text-blue-600 transition-colors">Vision & Mission</a></li>
-            </ul>
-          </div>
-
-          {/* Col 5: Contact & Hyderabad Centers */}
-          <div className="space-y-3">
-            <h4 className="text-slate-900 text-xs font-bold uppercase tracking-wider">Direct Contact & Venues</h4>
-            <div className="space-y-2.5 text-xs font-medium">
-              <a
-                href={`tel:${CONTACT_INFO.rawPhone}`}
-                className="flex items-center gap-2 text-slate-800 hover:text-blue-600 transition-colors"
-              >
-                <Phone className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
-                <span className="font-bold">{CONTACT_INFO.phone}</span>
-              </a>
-
-              <a
-                href={CONTACT_INFO.whatsappUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 text-emerald-700 hover:underline"
-              >
-                <WhatsAppIcon className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
-                <span>Chat on WhatsApp</span>
-              </a>
-
-              <a
-                href={`mailto:${CONTACT_INFO.email}`}
-                className="flex items-center gap-2 text-slate-800 hover:text-blue-600 transition-colors truncate"
-              >
-                <Mail className="w-3.5 h-3.5 text-blue-600 shrink-0" />
-                <span className="truncate">{CONTACT_INFO.email}</span>
-              </a>
-
-              <div className="pt-1 space-y-1.5 text-slate-500 text-[11px]">
-                <div className="flex items-start gap-1.5">
-                  <MapPin className="w-3.5 h-3.5 text-blue-600 shrink-0 mt-0.5" />
-                  <span>Gachibowli Stadium Hub, Hyderabad</span>
-                </div>
-                <div className="flex items-start gap-1.5">
-                  <MapPin className="w-3.5 h-3.5 text-blue-600 shrink-0 mt-0.5" />
-                  <span>Jubilee Hills & Madhapur, Hyderabad</span>
-                </div>
-                <div className="flex items-start gap-1.5">
-                  <MapPin className="w-3.5 h-3.5 text-blue-600 shrink-0 mt-0.5" />
-                  <span>Kondapur & Kukatpally, Hyderabad</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Bottom Sub-footer */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
-          <p>© {new Date().getFullYear()} RA Sports (Raising Athletics). All rights reserved.</p>
-
-          <div className="flex items-center gap-4">
-            <a href="#" className="hover:text-slate-900">Privacy Policy</a>
-            <span>•</span>
-            <a href="#" className="hover:text-slate-900">Child Safeguarding Code</a>
-            <span>•</span>
-            <a href="#" className="hover:text-slate-900">Parent Handbook</a>
-            <span>•</span>
-            <button
-              onClick={scrollToTop}
-              className="p-2 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors cursor-pointer"
-              title="Back to top"
+        
+        {/* Top Row: Logo | Nav Links | Social Icons */}
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-center border-b border-slate-800/60 pb-8">
+          
+          {/* Left: White Logo */}
+          <div className="md:col-span-3 flex justify-center md:justify-start">
+            <a
+              href="#home"
+              onClick={(e) => handleLinkClick(e, '#home', 'home')}
+              className="cursor-pointer"
             >
-              <ArrowUp className="w-4 h-4" />
-            </button>
+              <img
+                src="/custom/logo-white.png"
+                alt="RA SPORTS - Play • Learn • Grow"
+                className="h-12 sm:h-14 w-auto object-contain hover:opacity-95 transition-opacity"
+              />
+            </a>
           </div>
+
+          {/* Center: Nav links in exact sequence */}
+          <div className="md:col-span-6 flex flex-wrap justify-center items-center gap-5 sm:gap-7">
+            {FOOTER_LINKS.map((link) => (
+              <a
+                key={link.id}
+                href={link.href}
+                onClick={(e) => handleLinkClick(e, link.href, link.id)}
+                className="text-xs sm:text-sm font-semibold text-slate-300 hover:text-white transition-colors cursor-pointer"
+              >
+                {link.label}
+              </a>
+            ))}
+          </div>
+
+          {/* Right: Social Icons (Instagram, Facebook, YouTube) */}
+          <div className="md:col-span-3 flex justify-center md:justify-end items-center gap-3.5">
+            {/* Instagram */}
+            <a
+              href="https://instagram.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-8 h-8 rounded-full bg-white/10 hover:bg-[#96162e] flex items-center justify-center transition-colors text-white"
+              aria-label="Instagram"
+            >
+              <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+              </svg>
+            </a>
+
+            {/* Facebook */}
+            <a
+              href="https://facebook.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-8 h-8 rounded-full bg-white/10 hover:bg-[#96162e] flex items-center justify-center transition-colors text-white"
+              aria-label="Facebook"
+            >
+              <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                <path d="M9 8H6v4h3v12h5V12h3.642L18 8h-4V6.333C14 5.374 14.5 5 15.667 5H18V0h-3.808C10.597 0 9 1.582 9 4.615V8z" />
+              </svg>
+            </a>
+
+            {/* YouTube */}
+            <a
+              href="https://youtube.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-8 h-8 rounded-full bg-white/10 hover:bg-[#96162e] flex items-center justify-center transition-colors text-white"
+              aria-label="YouTube"
+            >
+              <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+              </svg>
+            </a>
+          </div>
+
         </div>
+
+        {/* Bottom Row: Copyright | Play • Learn • Grow ♡ */}
+        <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+          
+          <div className="text-xs text-slate-400 font-medium">
+            © 2025 RA Sports. All rights reserved.
+          </div>
+
+          <div className="font-handwriting text-xl sm:text-2xl text-slate-200 font-bold tracking-wide select-none">
+            Play • Learn • Grow ♡
+          </div>
+
+        </div>
+
       </div>
     </footer>
   );
